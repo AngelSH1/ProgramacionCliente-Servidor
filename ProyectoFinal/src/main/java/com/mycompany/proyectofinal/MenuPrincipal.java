@@ -77,7 +77,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(Usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 190, 60));
 
-        Fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\mende\\OneDrive\\Documentos\\GitHub\\ProgramacionCliente-Servidor\\ProyectoFinal\\Imagenes\\Menu.png")); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectofinal/Imagenes/Menu.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
