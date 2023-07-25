@@ -138,8 +138,6 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 380, 60));
         getContentPane().add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 410, 40));
         getContentPane().add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 410, 40));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectofinal/Imagenes/Ingreso.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
