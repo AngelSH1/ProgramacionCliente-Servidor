@@ -151,7 +151,7 @@
     <Component class="javax.swing.JLabel" name="Fondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\mende\OneDrive\Documentos\GitHub\ProgramacionCliente-Servidor\ProyectoFinal\Imagenes\Menu.png"/>
+          <Image iconType="3" name="/com/mycompany/proyectofinal/Imagenes/Menu.png"/>
         </Property>
       </Properties>
       <Constraints>
