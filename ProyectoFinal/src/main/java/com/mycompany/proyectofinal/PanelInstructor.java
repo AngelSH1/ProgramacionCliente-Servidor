@@ -43,7 +43,7 @@ public class PanelInstructor extends javax.swing.JPanel {
         add(CampoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 320, 30));
 
         FondoRegistroUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectofinal/Imagenes/Registro de Instructores.png"))); // NOI18N
+        FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Registro de Instructores.png"))); // NOI18N
         add(FondoRegistroUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 550, -1));
 
         Instructores.setModel(new javax.swing.table.DefaultTableModel(
@@ -61,7 +61,7 @@ public class PanelInstructor extends javax.swing.JPanel {
 
         add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 360));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectofinal/Imagenes/Fondo.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
     }// </editor-fold>//GEN-END:initComponents
 

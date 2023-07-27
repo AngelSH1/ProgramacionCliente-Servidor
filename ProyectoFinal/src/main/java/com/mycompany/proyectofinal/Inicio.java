@@ -110,7 +110,7 @@ public class Inicio extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         CampoContraseña = new javax.swing.JTextField();
         CampoUsuario = new javax.swing.JTextField();
-        Fondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -118,33 +118,44 @@ public class Inicio extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(55, 221, 255));
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Crear nuevo usuario");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/BotonCrearNuevoUsuario.png"))); // NOI18N
+        jButton2.setContentAreaFilled(false);
+        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/BotonCrearNuevoUsuario.png"))); // NOI18N
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/BotonCrearNuevoUsuarioGde.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 660, 380, 60));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 450, 130));
 
-        jButton1.setBackground(new java.awt.Color(55, 221, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ingresar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/BotonIngresar.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
+        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/BotonIngresar.png"))); // NOI18N
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/BotonIngresarGde.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 380, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 390, 70));
         getContentPane().add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 410, 40));
         getContentPane().add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 410, 40));
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Ingreso.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+    CreacionUsuario ventanaCreacionUsuario = new CreacionUsuario();
+    ventanaCreacionUsuario.setVisible(true);
+    this.dispose();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -192,8 +203,8 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CampoContraseña;
     private javax.swing.JTextField CampoUsuario;
-    private javax.swing.JLabel Fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -164,7 +164,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/mycompany/proyectofinal/Imagenes/Registro de Clases.png"/>
+          <Image iconType="3" name="/com/mycompany/imagenes/Registro de Clases.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -229,7 +229,7 @@
     <Component class="javax.swing.JLabel" name="Fondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/mycompany/proyectofinal/Imagenes/Fondo.png"/>
+          <Image iconType="3" name="/com/mycompany/imagenes/Fondo.png"/>
         </Property>
       </Properties>
       <Constraints>
