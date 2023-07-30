@@ -4,11 +4,7 @@
  */
 package com.mycompany.proyectofinal;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
@@ -19,9 +15,10 @@ public class Conexion {
     PreparedStatement consulta = null;
     ResultSet resultado = null;
     Connection conexion = null;
-            String url = "jdbc:mysql://localhost:3307/proyecto";
-            String username = "root";
-            String password = "";
+    String url = "jdbc:mysql://localhost:3307/proyecto";
+    String username = "root";
+    String password = "";
+
     public Connection crearConexion() {
         try {
             ////datos de conexion y logueo
