@@ -17,7 +17,7 @@ public class Funciones {
     private static JTextField textField2;
     private static JTextField textField3;
 
-    private static boolean campos() {
+    private boolean campos() {
         if ((textField1.getText().equals("")) || (textField2.getText().equals("")) || (textField3.getText().equals(""))) {
             return true;
 
@@ -36,9 +36,8 @@ public class Funciones {
                 throw new Exception();
             } else {
                 if (existeUsuario(textField1)) {
-                    //MenuPrincipal ventanaMenuPrincipal = new MenuPrincipal();
-                    //ventanaMenuPrincipal.setVisible(true);
-                    //this.dispose();
+                    MenuPrincipal ventanaMenuPrincipal = new MenuPrincipal();
+                    ventanaMenuPrincipal.setVisible(true);
 
                 } else {
                     throw new Exception();
@@ -96,7 +95,7 @@ public class Funciones {
         }
     }
 
-    public boolean existeUsuario(JTextField textField1) {
+    private boolean existeUsuario(JTextField textField1) {
         try {
             conexion.setConexion();
             conexion.setConsulta("SELECT COUNT(*) FROM persona WHERE usuario =" + textField1.getText());

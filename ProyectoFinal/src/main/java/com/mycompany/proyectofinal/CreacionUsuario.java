@@ -1,6 +1,5 @@
 package com.mycompany.proyectofinal;
 
-
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.Map;
@@ -10,16 +9,12 @@ import javax.swing.JOptionPane;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author daa
  */
 public class CreacionUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CreacionUsuario
-     */
     public CreacionUsuario() {
         initComponents();
     }
@@ -132,45 +127,16 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
     private void enviarNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarNuevoUsuarioActionPerformed
         // TODO add your handling code here:
-           
-        
+        Funciones funcion = new Funciones();
+        funcion.guardarDatos(textoNombre, textoContraseña, textoVerificacionContraseña);
+
+
     }//GEN-LAST:event_enviarNuevoUsuarioActionPerformed
 
     private void enviarNuevoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarNuevoUsuarioMouseClicked
         // TODO add your handling code here:
-        //CREACIÓN DE USUARIOS
-        /*String nombreUsuario = this.textoNombre.getText();
-        String contraseñaUsuario = this.textoContraseña.getText(); 
-        String VerificacionContraseña = this.textoVerificacionContraseña.getText();
-        String privilegioUsuario = (String) datoCliente.getSelectedItem();
-        Usuario u = new Usuario(nombreUsuario, contraseñaUsuario, privilegioUsuario);      
-            boolean enviar = true;
-            boolean contraseñasAceptadas = true;
-            try {
-            if (nombreUsuario.isEmpty() ) {
-                enviar = false;
-                JOptionPane.showMessageDialog(null, "El campo nombre está vacio");
-            }if (contraseñaUsuario.isEmpty() ) {
-                enviar = false;
-                JOptionPane.showMessageDialog(null, "El campo contraseña está vacio");
-            }if (VerificacionContraseña.isEmpty()) {
-                enviar = false;
-                JOptionPane.showMessageDialog(null, "El campo verificar contraseña está vacio");
-            }if (!contraseñaUsuario.equals(VerificacionContraseña)) {
-                enviar = false;
-                contraseñasAceptadas = false;
-                JOptionPane.showMessageDialog(null, "Las contraseñas son distintas!");
-             }else if (enviar && contraseñasAceptadas) {
-                BDUsuarios bdu = new BDUsuarios();
-                bdu.registrarUsuario(u);
-                JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
-                Inicio ventanaInicio = new Inicio();
-                ventanaInicio.setVisible(true);
-                this.dispose();
-            }    
-        } catch (Exception e) {
-            //Logger.getLogger(nombreUsuario);
-        }*/                 
+
+
     }//GEN-LAST:event_enviarNuevoUsuarioMouseClicked
 
     private void textoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreActionPerformed
@@ -184,27 +150,27 @@ public class CreacionUsuario extends javax.swing.JFrame {
     private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
         // TODO add your handling code here:
         //Volver al inicio sin crear usuario
-                Inicio ventanaInicio = new Inicio();
-                ventanaInicio.setVisible(true);
-                this.dispose();
+        Inicio ventanaInicio = new Inicio();
+        ventanaInicio.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_IngresarMouseClicked
 
     private void IngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseExited
         // TODO add your handling code here:
         // Quitar el Subrayado:      
         Font font = Ingresar.getFont();
-        Map attributes=font.getAttributes();
+        Map attributes = font.getAttributes();
         attributes.put(TextAttribute.UNDERLINE, -1);
-        Ingresar.setFont(font.deriveFont(attributes));   
+        Ingresar.setFont(font.deriveFont(attributes));
     }//GEN-LAST:event_IngresarMouseExited
 
     private void IngresarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseMoved
         // TODO add your handling code here:
         //Subrayar texto ya tienes usuario
-        Font font=Ingresar.getFont();
-        Map attributes=font.getAttributes();
-        attributes.put(TextAttribute.UNDERLINE,TextAttribute.UNDERLINE_ON);
-        Ingresar.setFont(font.deriveFont(attributes));  
+        Font font = Ingresar.getFont();
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        Ingresar.setFont(font.deriveFont(attributes));
     }//GEN-LAST:event_IngresarMouseMoved
 
     private void IngresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseEntered

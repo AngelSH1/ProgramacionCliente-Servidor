@@ -4,10 +4,9 @@
  */
 package com.mycompany.proyectofinal;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -44,7 +43,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         }); 
     }*/ //REVISAR********
-    
     //Metodo para verificar todos los datos ingresados, verificar que cuente con privilegios
     /*public void verificacionDatos(){
         if(verificarCampos()){
@@ -95,8 +93,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         }   
     }*/
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,6 +138,12 @@ public class Inicio extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 390, 70));
         getContentPane().add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 410, 40));
+
+        CampoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 410, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Ingreso.png"))); // NOI18N
@@ -152,18 +154,24 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    CreacionUsuario ventanaCreacionUsuario = new CreacionUsuario();
-    ventanaCreacionUsuario.setVisible(true);
-    this.dispose();
-        
+        CreacionUsuario creacionUser = new CreacionUsuario();
+        creacionUser.setVisible(true);
+        this.dispose();
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal ventanaMenuPrincipal = new MenuPrincipal();
-        ventanaMenuPrincipal.setVisible(true);
-        this.dispose();
+        Funciones funcion = new Funciones();
+        funcion.ingresarMenu(CampoUsuario, CampoContraseña);
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
