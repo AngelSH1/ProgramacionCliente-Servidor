@@ -4,13 +4,16 @@
 
 package com.mycompany.proyectofinal;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author mende
  */
 public class ProyectoFinal {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws SQLException {
+        
+        
     }
 }
