@@ -15,16 +15,13 @@ public class Conexion {
     PreparedStatement consulta = null;
     ResultSet resultado = null;
     Connection conexion = null;
-    String url = "jdbc:mysql://localhost:3307/proyecto";
+    String url = "jdbc:mysql://localhost:3306/proyecto";
     String username = "root";
-    String password = "";
+    String password = "root";
 
     public Connection crearConexion() {
         try {
             ////datos de conexion y logueo
-            String url = "jdbc:mysql://localhost:3307/proyecto";
-            String username = "root";
-            String password = "";
             ///realiza la conexion. y preparacion de la consulta que vamos a realizar
             conexion = DriverManager.getConnection(url, username, password);
         } catch (SQLException error) {
