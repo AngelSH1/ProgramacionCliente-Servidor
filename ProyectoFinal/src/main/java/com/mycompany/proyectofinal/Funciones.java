@@ -18,6 +18,10 @@ public class Funciones {
     private static JTextField textField3;
 
     private boolean campos() {
+        textField1 = new JTextField();
+        textField2 = new JTextField();
+        textField3 = new JTextField();
+
         if ((textField1.getText().equals("")) || (textField2.getText().equals("")) || (textField3.getText().equals(""))) {
             return true;
 
