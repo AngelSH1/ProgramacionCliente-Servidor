@@ -28,7 +28,7 @@ public class Funciones {
 
     }
 
-    public void ingresarMenu(JTextField textField1, JTextField textField2) {
+    public void ingresarMenu(JTextField textField1, JTextField textField2, JTextField textField3) {
         try {
             usuario = textField1.getText();
             contraseña = textField2.getText();
