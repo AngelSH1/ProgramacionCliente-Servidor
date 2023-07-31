@@ -13,11 +13,8 @@ public class Funciones {
     ResultSet resultado = null;
     private static String usuario;
     private static String contraseña;
-    private static JTextField textField1;
-    private static JTextField textField2;
-    private static JTextField textField3;
 
-    private boolean campos(JTextField textField1, JTextField textField2) {
+    private boolean camposIngresar(JTextField textField1, JTextField textField2) {
 
         if ((textField1.getText().isEmpty()) || (textField2.getText().isEmpty())) {
             return true;
@@ -28,12 +25,23 @@ public class Funciones {
 
     }
 
+    private boolean campoVerificar(JTextField textField3) {
+
+        if ((textField3.getText().isEmpty())) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
         try {
-            usuario = textField1.getText();
-            contraseña = textField2.getText();
+            textField1.getText();
+            textField2.getText();
             try {
-                if (campos(textField1, textField2)) {
+                if (camposIngresar(textField1, textField2)) {
                     throw new Exception();
                 } else {
                     if (existeUsuario(textField1)) {
@@ -57,7 +65,7 @@ public class Funciones {
             usuario = textField1.getText();
             contraseña = textField2.getText();
 
-            if (campos(textField1, textField2)) {
+            if (camposIngresar(textField1, textField2) && campoVerificar(textField3)) {
                 throw new Exception();
             } else {
                 if (textField2.getText().equals(textField3.getText())) {
