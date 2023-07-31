@@ -17,10 +17,7 @@ public class Funciones {
     private static JTextField textField2;
     private static JTextField textField3;
 
-    private boolean campos() {
-        textField1 = new JTextField();
-        textField2 = new JTextField();
-        textField3 = new JTextField();
+    private boolean campos(JTextField textField1, JTextField textField2, JTextField textField3) {
 
         if ((textField1.getText().equals("")) || (textField2.getText().equals("")) || (textField3.getText().equals(""))) {
             return true;
@@ -36,7 +33,7 @@ public class Funciones {
             usuario = textField1.getText();
             contraseña = textField2.getText();
 
-            if (campos()) {
+            if (campos(textField1, textField2, textField3)) {
                 throw new Exception();
             } else {
                 if (existeUsuario(textField1)) {
@@ -62,7 +59,7 @@ public class Funciones {
             usuario = textField1.getText();
             contraseña = textField2.getText();
 
-            if (campos()) {
+            if (campos(textField1, textField2, textField3)) {
                 throw new Exception();
             } else {
                 if (textField2.getText().equals(textField3.getText())) {
@@ -102,8 +99,8 @@ public class Funciones {
     private boolean existeUsuario(JTextField textField1) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("SELECT COUNT(*) FROM persona WHERE usuario =" + textField1.getText());
-            conexion.getConsulta().setString(1, usuario);
+            conexion.setConsulta("SELECT COUNT(*) FROM persona WHERE usuario = ?");
+            conexion.getConsulta().setString(1, textField1.getText());
             if (resultado.next()) {
                 int cuenta = resultado.getInt(1);
                 return cuenta > 0;
