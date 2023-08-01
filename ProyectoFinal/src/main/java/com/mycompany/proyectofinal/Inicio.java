@@ -93,9 +93,12 @@ public class Inicio extends javax.swing.JFrame {
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
         Funciones funcion = new Funciones();
+
         
         funcion.ingresarMenu(CampoUsuario, CampoContraseña);
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+
 
     private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
         // TODO add your handling code here:

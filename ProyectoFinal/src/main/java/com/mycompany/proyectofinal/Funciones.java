@@ -28,6 +28,7 @@ public class Funciones {
 
     }
 
+
     private boolean campos2(JTextField textField1, JTextField textField2) {
 
         if ((textField1.getText().equals("")) || (textField2.getText().equals(""))) {
