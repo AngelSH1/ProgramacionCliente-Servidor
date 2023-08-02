@@ -36,6 +36,26 @@ public class Funciones {
     }
 
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
+
+        try {
+            textField1.getText();
+            textField2.getText();
+            if (camposIngresar(textField1, textField2)) {
+                throw new Exception();
+
+            } else {
+                if (existeUsuario01(textField1)) {
+                    MenuPrincipal menuPrincipal = new MenuPrincipal();
+                    menuPrincipal.setVisible(true);
+                } else {
+                    throw new Exception();
+                }
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+
+        }
     }
 
     public void guardarDatos(JTextField textField1, JTextField textField2, JTextField textField3) {
@@ -55,7 +75,7 @@ public class Funciones {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
 
         }
 
@@ -80,7 +100,7 @@ public class Funciones {
         }
     }
 
-    private boolean existeUsuario(JTextField textField1) {
+    private boolean existeUsuario01(JTextField textField1) {
         try {
             conexion.setConexion();
             conexion.setConsulta("select count(*) from tab_usuarios WHERE nombre = ?");
@@ -97,6 +117,24 @@ public class Funciones {
         }
         return false;
 
+    }
+
+    private boolean existeUsuario02(JTextField textField1) {
+        try {
+            conexion.setConexion();
+            conexion.setConsulta("select count(*) from tab_usuarios WHERE nombre = ?");
+            conexion.getConsulta().setString(1, textField1.getText());
+            resultado = conexion.getConsulta().executeQuery();
+            if (resultado != null && resultado.next()) {
+                int cuenta = resultado.getInt(1);
+                return cuenta > 0;
+            }
+
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 }
