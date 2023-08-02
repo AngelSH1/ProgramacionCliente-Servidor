@@ -13,13 +13,10 @@ public class Funciones {
     ResultSet resultado = null;
     private static String usuario;
     private static String contraseña;
-    private static JTextField textField1;
-    private static JTextField textField2;
-    private static JTextField textField3;
 
-    private boolean campos(JTextField textField1, JTextField textField2, JTextField textField3) {
+    private boolean camposIngresar(JTextField textField1, JTextField textField2) {
 
-        if ((textField1.getText().equals("")) || (textField2.getText().equals("")) || (textField3.getText().equals(""))) {
+        if ((textField1.getText().isEmpty()) || (textField2.getText().isEmpty())) {
             return true;
 
         } else {
@@ -28,37 +25,34 @@ public class Funciones {
 
     }
 
+    private boolean campoVerificar(JTextField textField3) {
 
-    private boolean campos2(JTextField textField1, JTextField textField2) {
-
-        if ((textField1.getText().equals("")) || (textField2.getText().equals(""))) {
+        if ((textField3.getText().isEmpty())) {
             return true;
-
         } else {
             return false;
-        }
 
+        }
     }
 
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
         try {
-            usuario = textField1.getText();
-            contraseña = textField2.getText();
-            if (campos2(textField1, textField2)) {
-                JOptionPane.showMessageDialog(null, "Campos en Blanco");
-                throw new Exception();
+            String usuario1 = textField1.getText();
+            String usuario2 = textField2.getText();
+
+            if (camposIngresar(textField1, textField1)) {
+                throw new Exception("Faltan campos por cubrir");
+            } else if (existeUsuario01(textField1)) {
+                MenuPrincipalCliente menuPrincipalCliente = new MenuPrincipalCliente();
+                menuPrincipalCliente.setVisible(true);
+                /*} else if (existeUsuario02(textField1)) {
+                MenuPrincipalEmpleado menuPrincipalEmpleado = new MenuPrincipalEmpleado();
+                menuPrincipalEmpleado.setVisible(true);*/
             } else {
-                if (existeUsuario2(textField1)) {
-                    MenuPrincipalEmpleado ventanaMenuPrincipal = new MenuPrincipalEmpleado();
-                    ventanaMenuPrincipal.setVisible(true);
-                    
-                } else {
-                    JOptionPane.showMessageDialog(null, "El Usuario No Existe");
-                    throw new Exception();
-                }
+                throw new Exception("El usuario no se encuentra en la base de datos");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
@@ -67,7 +61,7 @@ public class Funciones {
             usuario = textField1.getText();
             contraseña = textField2.getText();
 
-            if (campos(textField1, textField2, textField3)) {
+            if (camposIngresar(textField1, textField2) && campoVerificar(textField3)) {
                 throw new Exception();
             } else {
                 if (textField2.getText().equals(textField3.getText())) {
@@ -79,7 +73,7 @@ public class Funciones {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
 
         }
 
@@ -104,12 +98,13 @@ public class Funciones {
         }
     }
 
-    private boolean existeUsuario(JTextField textField1) {
+    private boolean existeUsuario01(JTextField textField1) {
         try {
             conexion.setConexion();
             conexion.setConsulta("select count(*) from tab_usuarios WHERE nombre = ?");
             conexion.getConsulta().setString(1, textField1.getText());
-            if (resultado.next()) {
+            resultado = conexion.getConsulta().executeQuery();
+            if (resultado != null && resultado.next()) {
                 int cuenta = resultado.getInt(1);
                 return cuenta > 0;
             }
@@ -122,17 +117,15 @@ public class Funciones {
 
     }
 
-    private boolean existeUsuario2(JTextField textField1) {
+    private boolean existeUsuario02(JTextField textField1) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("SELECT count(*) FROM tab_usuarios WHERE nombre = ?");
+            conexion.setConsulta("select count(*) from tab_usuarios WHERE nombre = ?");
             conexion.getConsulta().setString(1, textField1.getText());
-            ResultSet resultSet = conexion.getConsulta().executeQuery();
-            if (resultSet.next()) {
-                int count = resultSet.getInt(1);
-                if (count > 0) {
-                    return true;
-                }
+            resultado = conexion.getConsulta().executeQuery();
+            if (resultado != null && resultado.next()) {
+                int cuenta = resultado.getInt(1);
+                return cuenta > 0;
             }
 
             conexion.cerrarConexion();
@@ -143,7 +136,7 @@ public class Funciones {
     }
 
     private void dispose() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
