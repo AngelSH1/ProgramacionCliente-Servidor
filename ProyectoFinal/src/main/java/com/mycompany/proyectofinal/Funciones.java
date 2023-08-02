@@ -40,16 +40,16 @@ public class Funciones {
             String usuario1 = textField1.getText();
             String usuario2 = textField2.getText();
 
-            if (camposIngresar(textField1, textField2)) {
-                throw new Exception();
+            if (camposIngresar(textField1, textField1)) {
+                throw new Exception("Faltan campos por cubrir");
             } else if (existeUsuario01(textField1)) {
                 MenuPrincipalCliente menuPrincipalCliente = new MenuPrincipalCliente();
                 menuPrincipalCliente.setVisible(true);
-            } else if (existeUsuario02(textField2)) {
+                /*} else if (existeUsuario02(textField1)) {
                 MenuPrincipalEmpleado menuPrincipalEmpleado = new MenuPrincipalEmpleado();
-                menuPrincipalEmpleado.setVisible(true);
+                menuPrincipalEmpleado.setVisible(true);*/
             } else {
-                throw new Exception();
+                throw new Exception("El usuario no se encuentra en la base de datos");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
