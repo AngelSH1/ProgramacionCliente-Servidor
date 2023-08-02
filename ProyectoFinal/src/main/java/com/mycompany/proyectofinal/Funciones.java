@@ -49,22 +49,17 @@ public class Funciones {
                 throw new Exception();
             } else {
                 if (existeUsuario2(textField1)) {
-                    MenuPrincipal ventanaMenuPrincipal = new MenuPrincipal();
+                    MenuPrincipalEmpleado ventanaMenuPrincipal = new MenuPrincipalEmpleado();
                     ventanaMenuPrincipal.setVisible(true);
-
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "El Usuario No Existe");
                     throw new Exception();
-
                 }
-
             }
-
         } catch (Exception e) {
             e.printStackTrace();
-
         }
-
     }
 
     public void guardarDatos(JTextField textField1, JTextField textField2, JTextField textField3) {
@@ -145,6 +140,10 @@ public class Funciones {
             e.printStackTrace();
         }
         return false;
+    }
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

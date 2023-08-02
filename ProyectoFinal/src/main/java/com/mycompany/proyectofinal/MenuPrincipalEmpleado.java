@@ -6,24 +6,24 @@ import java.awt.BorderLayout;
  *
  * @author Dabney Arosemena Alpízar
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class MenuPrincipalEmpleado extends javax.swing.JFrame {
 
     /**
      * Creates new form ModuloRutinas
      */
-    public MenuPrincipal() {
+    public MenuPrincipalEmpleado() {
         initComponents();
         PanelUsuario();
     }
 
     //Método para que aparezca vacía la ventana de Inicio
     public void Inicio(){
-        MenuPrincipal.this.setVisible(false);
+        MenuPrincipalEmpleado.this.setVisible(false);
         new Inicio().setVisible(true);
       }  
     //Método para que aparezca vacía la ventana Usuarios
     public void PanelUsuario(){
-        PanelUsuario pu = new PanelUsuario();
+        PanelUsuarioEmpleado pu = new PanelUsuarioEmpleado();
         pu.setSize(1000,450);
         pu.setLocation(0,0);
         
@@ -232,21 +232,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuPrincipalEmpleado().setVisible(true);
             }
         });
     }
