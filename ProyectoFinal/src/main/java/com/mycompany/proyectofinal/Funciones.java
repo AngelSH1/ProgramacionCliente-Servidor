@@ -36,25 +36,23 @@ public class Funciones {
     }
 
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
-
         try {
-            textField1.getText();
-            textField2.getText();
+            String usuario1 = textField1.getText();
+            String usuario2 = textField2.getText();
+
             if (camposIngresar(textField1, textField2)) {
                 throw new Exception();
-
+            } else if (existeUsuario01(textField1)) {
+                MenuPrincipalCliente menuPrincipalCliente = new MenuPrincipalCliente();
+                menuPrincipalCliente.setVisible(true);
+            } else if (existeUsuario02(textField2)) {
+                MenuPrincipalEmpleado menuPrincipalEmpleado = new MenuPrincipalEmpleado();
+                menuPrincipalEmpleado.setVisible(true);
             } else {
-                if (existeUsuario01(textField1)) {
-                    MenuPrincipal menuPrincipal = new MenuPrincipal();
-                    menuPrincipal.setVisible(true);
-                } else {
-                    throw new Exception();
-                }
-
+                throw new Exception();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-
         }
     }
 
@@ -135,6 +133,10 @@ public class Funciones {
             e.printStackTrace();
         }
         return false;
+    }
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

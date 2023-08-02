@@ -38,22 +38,24 @@ public class PanelClase extends javax.swing.JPanel {
         tabla1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         rbNuevaClase = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        botonSeleccionar = new javax.swing.JButton();
+        botonEliminar = new javax.swing.JButton();
+        nombreClase = new javax.swing.JLabel();
+        txtNombreClase2 = new javax.swing.JTextField();
+        descripcion = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
+        cupoMax = new javax.swing.JLabel();
         txtCupoMaximo = new javax.swing.JTextField();
         rbAcutalizar = new javax.swing.JRadioButton();
-        txtNombreClase2 = new javax.swing.JTextField();
-        btnEliminar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnRegistrar = new javax.swing.JButton();
+        botonRegistrar = new javax.swing.JButton();
         lbid = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        actualizar = new javax.swing.JLabel();
+        crearNuevaClase = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
+        FondoGde = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabla1.setForeground(new java.awt.Color(0, 0, 0));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -83,73 +85,86 @@ public class PanelClase extends javax.swing.JPanel {
         tabla1.getTableHeader().setReorderingAllowed(false);
         TablaInstructores.setViewportView(tabla1);
 
-        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 647, 343));
+        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 647, 380));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rbNuevaClase.setText("Crear Nueva Clase");
         rbNuevaClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbNuevaClaseActionPerformed(evt);
             }
         });
-        jPanel1.add(rbNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 14, -1, -1));
+        jPanel1.add(rbNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        jButton1.setText("Seleccionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonSeleccionar.setBackground(new java.awt.Color(246, 104, 68));
+        botonSeleccionar.setFont(new java.awt.Font("Eras Demi ITC", 0, 12)); // NOI18N
+        botonSeleccionar.setForeground(new java.awt.Color(255, 255, 255));
+        botonSeleccionar.setText("Seleccionar");
+        botonSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonSeleccionarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 12, -1, -1));
-        jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 213, 290, 30));
+        jPanel1.add(botonSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
+
+        botonEliminar.setBackground(new java.awt.Color(246, 104, 68));
+        botonEliminar.setFont(new java.awt.Font("Eras Demi ITC", 0, 12)); // NOI18N
+        botonEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, 30));
+
+        nombreClase.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        nombreClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Nombre Clase.png"))); // NOI18N
+        jPanel1.add(nombreClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jPanel1.add(txtNombreClase2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 132, 290, 30));
+
+        descripcion.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        descripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Descripción.png"))); // NOI18N
+        jPanel1.add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 290, 30));
+
+        cupoMax.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        cupoMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Cupo Maximo.png"))); // NOI18N
+        jPanel1.add(cupoMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
         jPanel1.add(txtCupoMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 278, 290, 30));
 
-        rbAcutalizar.setText("Actualizar");
         rbAcutalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbAcutalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(rbAcutalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 52, -1, -1));
-        jPanel1.add(txtNombreClase2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 132, 290, 30));
+        jPanel1.add(rbAcutalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrar.setBackground(new java.awt.Color(246, 104, 68));
+        botonRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        botonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        botonRegistrar.setText("Registrar");
+        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
+                botonRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 98, -1));
-
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel1.setText("Descripcion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 186, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel2.setText("Cupo Maximo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 255, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel3.setText("Nombre Clase");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 109, -1, -1));
-
-        btnRegistrar.setBackground(new java.awt.Color(246, 104, 68));
-        btnRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 314, 140, 50));
+        jPanel1.add(botonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 314, 140, 50));
         jPanel1.add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 98, 32, 28));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 6, -1, -1));
+        actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Actualizar.png"))); // NOI18N
+        jPanel1.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 400));
+        crearNuevaClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Crear Nueva Clase.png"))); // NOI18N
+        jPanel1.add(crearNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, 20));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo Pequeño.png"))); // NOI18N
+        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 380));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 6, 310, 380));
+
+        FondoGde.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
+        add(FondoGde, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbNuevaClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNuevaClaseActionPerformed
@@ -160,7 +175,7 @@ public class PanelClase extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_rbNuevaClaseActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSeleccionarActionPerformed
         // TODO add your handling code here:
         int filaSeleccionada = tabla1.getSelectedRow();
         if (filaSeleccionada != -1) {
@@ -177,7 +192,7 @@ public class PanelClase extends javax.swing.JPanel {
             // Si no hay fila seleccionada, muestra un mensaje de error
             JOptionPane.showMessageDialog(null, "Selecciona una fila Para Acutalizar.");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonSeleccionarActionPerformed
 
     private void rbAcutalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAcutalizarActionPerformed
         // TODO add your handling code here:
@@ -187,7 +202,7 @@ public class PanelClase extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_rbAcutalizarActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
         int filaSeleccionada = tabla1.getSelectedRow();
         if (filaSeleccionada != -1) {
             // Obtener los valores de la fila seleccionada
@@ -205,9 +220,9 @@ public class PanelClase extends javax.swing.JPanel {
             // Si no hay fila seleccionada, muestra un mensaje de error
             JOptionPane.showMessageDialog(null, "Selecciona una fila Para Acutalizar.");
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarActionPerformed
+    }//GEN-LAST:event_botonEliminarActionPerformed
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         // TODO add your handling code here:
         //insertaDatos();
         try {
@@ -221,20 +236,23 @@ public class PanelClase extends javax.swing.JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    }//GEN-LAST:event_botonRegistrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel FondoGde;
     private javax.swing.JScrollPane TablaInstructores;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel actualizar;
+    private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonRegistrar;
+    private javax.swing.JButton botonSeleccionar;
+    private javax.swing.JLabel crearNuevaClase;
+    private javax.swing.JLabel cupoMax;
+    private javax.swing.JLabel descripcion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbid;
+    private javax.swing.JLabel nombreClase;
     private javax.swing.JRadioButton rbAcutalizar;
     private javax.swing.JRadioButton rbNuevaClase;
     private javax.swing.JTable tabla1;
@@ -314,7 +332,7 @@ InfoClase infoclase = new InfoClase();
         txtNombreClase2.setEnabled(false);
         txtDescripcion.setEnabled(false);
         txtCupoMaximo.setEnabled(false);
-        btnRegistrar.setEnabled(false);
+        botonRegistrar.setEnabled(false);
     }
 
     public void abilitados() {
@@ -322,7 +340,7 @@ InfoClase infoclase = new InfoClase();
         txtNombreClase2.setEnabled(true);
         txtDescripcion.setEnabled(true);
         txtCupoMaximo.setEnabled(true);
-        btnRegistrar.setEnabled(true);
+        botonRegistrar.setEnabled(true);
     }
 
 }
