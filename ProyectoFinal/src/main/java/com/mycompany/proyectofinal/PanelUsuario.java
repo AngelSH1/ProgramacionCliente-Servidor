@@ -3,12 +3,12 @@ package com.mycompany.proyectofinal;
  *
  * @author Dabney Arosemena Alpízar
  */
-public class PanelUsuarioEmpleado extends javax.swing.JPanel {
+public class PanelUsuario extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelUsuarios
      */
-    public PanelUsuarioEmpleado() {
+    public PanelUsuario() {
         initComponents();
     }
 
