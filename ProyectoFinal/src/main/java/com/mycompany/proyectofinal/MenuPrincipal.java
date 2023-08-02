@@ -67,6 +67,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     //Método para que aparezca vacía la ventana Clases
     public void PanelClase(){
+        //PanelClase pc = new PanelClase();
         PanelClase pc = new PanelClase();
         pc.setSize(1000,450);
         pc.setLocation(0,0);

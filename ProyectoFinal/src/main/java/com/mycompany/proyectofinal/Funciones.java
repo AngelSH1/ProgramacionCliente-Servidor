@@ -29,35 +29,13 @@ public class Funciones {
 
         if ((textField3.getText().isEmpty())) {
             return true;
-
         } else {
             return false;
-        }
 
+        }
     }
 
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
-        try {
-            textField1.getText();
-            textField2.getText();
-            try {
-                if (camposIngresar(textField1, textField2)) {
-                    throw new Exception();
-                } else {
-                    if (existeUsuario(textField1)) {
-                        MenuPrincipal ventanaMenuPrincipal = new MenuPrincipal();
-                        ventanaMenuPrincipal.setVisible(true);
-                    } else {
-                        throw new Exception();
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     public void guardarDatos(JTextField textField1, JTextField textField2, JTextField textField3) {
@@ -86,9 +64,9 @@ public class Funciones {
     private void crearUsuario(String usuario, String contraseña) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("INSERT INTO persona (usuario, contraseña) VALUES (?,?)");
-            conexion.getConsulta().setString(1, usuario);
-            conexion.getConsulta().setString(2, contraseña);
+            conexion.setConsulta("INSERT INTO tab_usuarios (contraseña, nombre) VALUES (?,?)");
+            conexion.getConsulta().setString(1, contraseña);
+            conexion.getConsulta().setString(2, usuario);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.println("Cliente guardado!");
@@ -105,7 +83,7 @@ public class Funciones {
     private boolean existeUsuario(JTextField textField1) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("SELECT COUNT(*) FROM persona WHERE usuario = ?");
+            conexion.setConsulta("select count(*) from tab_usuarios WHERE nombre = ?");
             conexion.getConsulta().setString(1, textField1.getText());
             resultado = conexion.getConsulta().executeQuery();
             if (resultado != null && resultado.next()) {
