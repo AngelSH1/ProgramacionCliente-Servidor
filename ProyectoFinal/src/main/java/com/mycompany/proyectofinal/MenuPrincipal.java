@@ -33,7 +33,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         PanelInterior.repaint();  
     }
     //Método para que aparezca vacía la ventana Horarios
-    /*public void PanelHorario(){
+    public void PanelHorario(){
         PanelHorario ph = new PanelHorario();
         ph.setSize(1000,450);
         ph.setLocation(0,0);
@@ -42,7 +42,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         PanelInterior.add(ph, BorderLayout.CENTER);
         PanelInterior.revalidate();
         PanelInterior.repaint();  
-    }*/
+    }
     //Método para que aparezca vacía la ventana Instructores
     public void PanelInstructor(){
         PanelInstructor pi = new PanelInstructor();
@@ -197,7 +197,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void BotonHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonHorariosActionPerformed
         // TODO add your handling code here:
-        //PanelHorario();
+        PanelHorario();
     }//GEN-LAST:event_BotonHorariosActionPerformed
 
     private void BotonInstructoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInstructoresActionPerformed

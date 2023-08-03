@@ -83,7 +83,7 @@ public class PanelClase extends javax.swing.JPanel {
         tabla1.getTableHeader().setReorderingAllowed(false);
         TablaInstructores.setViewportView(tabla1);
 
-        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 647, 343));
+        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 647, 380));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -103,7 +103,7 @@ public class PanelClase extends javax.swing.JPanel {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 12, -1, -1));
         jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 213, 290, 30));
-        jPanel1.add(txtCupoMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 278, 290, 30));
+        jPanel1.add(txtCupoMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 290, 30));
 
         rbAcutalizar.setText("Actualizar");
         rbAcutalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,15 +146,16 @@ public class PanelClase extends javax.swing.JPanel {
         jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 314, 140, 50));
         jPanel1.add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 98, 32, 28));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 6, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, 380));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 400));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 450));
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbNuevaClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNuevaClaseActionPerformed
         // TODO add your handling code here:
         if (rbNuevaClase.isSelected()) {
+            limpiar();
             rbAcutalizar.setSelected(false);
             abilitados();
         }
@@ -318,7 +319,6 @@ InfoClase infoclase = new InfoClase();
     }
 
     public void abilitados() {
-        lbid.setText(String.valueOf(0));
         txtNombreClase2.setEnabled(true);
         txtDescripcion.setEnabled(true);
         txtCupoMaximo.setEnabled(true);

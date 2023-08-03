@@ -15,7 +15,7 @@ public class Conexion {
     PreparedStatement consulta = null;
     ResultSet resultado = null;
     Connection conexion = null;
-    String url = "jdbc:mysql://localhost:3307/proyecto";
+    String url = "jdbc:mysql://localhost:3306/proyecto";
     String username = "root";
     String password = "root";
 
