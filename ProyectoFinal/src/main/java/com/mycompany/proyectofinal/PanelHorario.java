@@ -144,15 +144,15 @@ public class PanelHorario extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 98, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 90, -1));
 
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel1.setText("Clase");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel2.setText("Hora Finalizacion");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel3.setText("Año");
@@ -238,7 +238,7 @@ public class PanelHorario extends javax.swing.JPanel {
                 comboClaseActionPerformed(evt);
             }
         });
-        jPanel1.add(comboClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, -1));
+        jPanel1.add(comboClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 110, -1));
 
         cmbFinalizacionHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22" }));
         cmbFinalizacionHora.addActionListener(new java.awt.event.ActionListener() {
@@ -254,18 +254,18 @@ public class PanelHorario extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel12.setText("Hora Inicio");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         jLabel13.setText("Instructor");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
 
         comboIdClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboIdClaseActionPerformed(evt);
             }
         });
-        jPanel1.add(comboIdClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 40, 20));
+        jPanel1.add(comboIdClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 40, 20));
 
         cmbFinalizacionMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "10", "20", "30", "40", "50" }));
         cmbFinalizacionMinutos.addActionListener(new java.awt.event.ActionListener() {
@@ -280,7 +280,7 @@ public class PanelHorario extends javax.swing.JPanel {
                 comboInstructor1ActionPerformed(evt);
             }
         });
-        jPanel1.add(comboInstructor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 90, -1));
+        jPanel1.add(comboInstructor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 90, -1));
 
         comboIdInstructor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
