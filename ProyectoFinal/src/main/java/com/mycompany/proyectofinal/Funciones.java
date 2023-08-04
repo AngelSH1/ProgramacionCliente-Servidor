@@ -28,7 +28,6 @@ public class Funciones {
 
     }
 
-
     private boolean campos2(JTextField textField1, JTextField textField2) {
 
         if ((textField1.getText().equals("")) || (textField2.getText().equals(""))) {
@@ -93,9 +92,9 @@ public class Funciones {
     private void crearUsuario(String usuario, String contraseña) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("INSERT INTO tab_usuarios (contraseña, nombre) VALUES (?,?)");
-            conexion.getConsulta().setString(1, contraseña);
-            conexion.getConsulta().setString(2, usuario);
+            conexion.setConsulta("INSERT INTO tab_usuarios (usuario, contraseña) VALUES (?,?)");
+            conexion.getConsulta().setString(1, usuario);
+            conexion.getConsulta().setString(2, contraseña);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.println("Cliente guardado!");
