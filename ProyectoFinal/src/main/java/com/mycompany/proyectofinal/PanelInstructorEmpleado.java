@@ -3,9 +3,9 @@ package com.mycompany.proyectofinal;
  *
  * @author Dabney Arosemena Alpízar
  */
-public class PanelInstructor extends javax.swing.JPanel {
+public class PanelInstructorEmpleado extends javax.swing.JPanel {
 
-    public PanelInstructor() {
+    public PanelInstructorEmpleado() {
         initComponents();
     }
 

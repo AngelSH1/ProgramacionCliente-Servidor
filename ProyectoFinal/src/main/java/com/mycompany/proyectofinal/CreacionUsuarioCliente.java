@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
  *
  * @author daa
  */
-public class CreacionUsuario extends javax.swing.JFrame {
+public class CreacionUsuarioCliente extends javax.swing.JFrame {
 
-    public CreacionUsuario() {
+    public CreacionUsuarioCliente() {
         initComponents();
     }
 
@@ -30,11 +30,13 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Ingresar = new javax.swing.JLabel();
+        textoConstCliente = new javax.swing.JComboBox<>();
         textoNombre = new javax.swing.JTextField();
         textoContraseña = new javax.swing.JTextField();
         textoVerificacionContraseña = new javax.swing.JTextField();
         enviarNuevoUsuario = new javax.swing.JButton();
         CuerpoCrearCuenta = new javax.swing.JLabel();
+        textoCliente = new javax.swing.JComboBox<>();
         datoCliente = new javax.swing.JComboBox<>();
         Fondo = new javax.swing.JLabel();
 
@@ -67,6 +69,9 @@ public class CreacionUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 170, 70));
+
+        textoConstCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente" }));
+        jPanel1.add(textoConstCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
 
         textoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +114,14 @@ public class CreacionUsuario extends javax.swing.JFrame {
         CuerpoCrearCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Creacion de Usuario.png"))); // NOI18N
         jPanel1.add(CuerpoCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 820));
 
+        textoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente" }));
+        textoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(textoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 500, 660));
 
         datoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente" }));
@@ -128,7 +141,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
     private void enviarNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarNuevoUsuarioActionPerformed
         // TODO add your handling code here:
         Funciones funcion = new Funciones();
-        funcion.guardarDatos(textoNombre, textoContraseña, textoVerificacionContraseña);
+        funcion.guardarDatos(textoNombre, textoContraseña, textoVerificacionContraseña, textoCliente);
 
 
     }//GEN-LAST:event_enviarNuevoUsuarioActionPerformed
@@ -186,6 +199,10 @@ public class CreacionUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_datoClienteActionPerformed
 
+    private void textoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,20 +220,21 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreacionUsuarioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreacionUsuarioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreacionUsuarioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreacionUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreacionUsuarioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreacionUsuario().setVisible(true);
+                new CreacionUsuarioCliente().setVisible(true);
             }
         });
     }
@@ -228,6 +246,8 @@ public class CreacionUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> datoCliente;
     private javax.swing.JButton enviarNuevoUsuario;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> textoCliente;
+    private javax.swing.JComboBox<String> textoConstCliente;
     private javax.swing.JTextField textoContraseña;
     private javax.swing.JTextField textoNombre;
     private javax.swing.JTextField textoVerificacionContraseña;

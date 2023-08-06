@@ -3,12 +3,12 @@ package com.mycompany.proyectofinal;
  *
  * @author Dabney Arosemena Alpízar
  */
-public class PanelUsuario extends javax.swing.JPanel {
+public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelUsuarios
      */
-    public PanelUsuario() {
+    public PanelUsuarioEmpleado() {
         initComponents();
     }
 
@@ -21,6 +21,7 @@ public class PanelUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        campoConstEmpleado = new javax.swing.JComboBox<>();
         BotonBuscarUsuario = new javax.swing.JButton();
         BotonActualizarUsuario = new javax.swing.JButton();
         BotonBorrarUsuario = new javax.swing.JButton();
@@ -40,6 +41,9 @@ public class PanelUsuario extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(990, 460));
         setPreferredSize(new java.awt.Dimension(990, 460));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        campoConstEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado" }));
+        add(campoConstEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, -1));
 
         BotonBuscarUsuario.setBackground(new java.awt.Color(246, 104, 68));
         BotonBuscarUsuario.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
@@ -149,6 +153,7 @@ public class PanelUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoRegistroUsuarios;
     private javax.swing.JScrollPane TablaUsuarios;
+    private javax.swing.JComboBox<String> campoConstEmpleado;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

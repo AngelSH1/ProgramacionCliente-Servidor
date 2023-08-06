@@ -6,24 +6,24 @@ import java.awt.BorderLayout;
  *
  * @author Dabney Arosemena Alpízar
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class MenuPrincipalCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form ModuloRutinas
      */
-    public MenuPrincipal() {
+    public MenuPrincipalCliente() {
         initComponents();
-        PanelUsuario();
+        PanelUsuarioEmpleado();
     }
 
     //Método para que aparezca vacía la ventana de Inicio
     public void Inicio(){
-        MenuPrincipal.this.setVisible(false);
+        MenuPrincipalCliente.this.setVisible(false);
         new Inicio().setVisible(true);
       }  
     //Método para que aparezca vacía la ventana Usuarios
-    public void PanelUsuario(){
-        PanelUsuario pu = new PanelUsuario();
+    public void PanelUsuarioEmpleado(){
+        PanelUsuarioEmpleado pu = new PanelUsuarioEmpleado();
         pu.setSize(1000,450);
         pu.setLocation(0,0);
         
@@ -34,7 +34,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     //Método para que aparezca vacía la ventana Horarios
     public void PanelHorario(){
-        PanelHorario ph = new PanelHorario();
+        PanelHorarioEmpleado ph = new PanelHorarioEmpleado();
         ph.setSize(1000,450);
         ph.setLocation(0,0);
         
@@ -45,7 +45,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     //Método para que aparezca vacía la ventana Instructores
     public void PanelInstructor(){
-        PanelInstructor pi = new PanelInstructor();
+        PanelInstructorEmpleado pi = new PanelInstructorEmpleado();
         pi.setSize(1000,450);
         pi.setLocation(0,0);
         
@@ -56,7 +56,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     //Método para que aparezca vacía la ventana Instructores
     public void PanelRutina(){
-        PanelRutina pr = new PanelRutina();
+        PanelRutinaEmpleado pr = new PanelRutinaEmpleado();
         pr.setSize(1000,450);
         pr.setLocation(0,0);
         
@@ -67,8 +67,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
     //Método para que aparezca vacía la ventana Clases
     public void PanelClase(){
-        //PanelClase pc = new PanelClase();
-        PanelClase pc = new PanelClase();
+        //PanelClase pc = new PanelClaseEmpleado();
+        PanelClaseEmpleado pc = new PanelClaseEmpleado();
         pc.setSize(1000,450);
         pc.setLocation(0,0);
         
@@ -185,7 +185,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void BotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuariosActionPerformed
         // TODO add your handling code here:
-        PanelUsuario();
+        PanelUsuarioEmpleado();
         
     }//GEN-LAST:event_BotonUsuariosActionPerformed
 
@@ -232,21 +232,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuPrincipalCliente().setVisible(true);
             }
         });
     }

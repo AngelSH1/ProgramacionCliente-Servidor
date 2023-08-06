@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.proyectofinal;
 
 import java.sql.SQLException;
@@ -16,12 +12,12 @@ import javax.swing.table.TableColumn;
  *
  * @author shang
  */
-public class PanelHorario extends javax.swing.JPanel {
+public class PanelHorarioEmpleado extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelHorario
      */
-    public PanelHorario() {
+    public PanelHorarioEmpleado() {
         initComponents();
         llenarTabla();
         llenarcomboClase();
@@ -47,40 +43,43 @@ public class PanelHorario extends javax.swing.JPanel {
         TablaInstructores = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
+        txtNuevoHorario = new javax.swing.JLabel();
+        txtActualizar = new javax.swing.JLabel();
         rbNuevahorario = new javax.swing.JRadioButton();
         btnselecionar = new javax.swing.JButton();
         rbAcutalizar = new javax.swing.JRadioButton();
         btnEliminar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
         cmbfechaYear = new javax.swing.JComboBox<>();
         cmbfechaDia = new javax.swing.JComboBox<>();
         cmbfechaMes = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JLabel();
+        txtDia = new javax.swing.JLabel();
+        txtMes = new javax.swing.JLabel();
+        txtAño = new javax.swing.JLabel();
+        txtHoraFinalizacion = new javax.swing.JLabel();
+        txtHora_ = new javax.swing.JLabel();
+        txtMinutos_ = new javax.swing.JLabel();
+        txtClase = new javax.swing.JLabel();
         cmbInicioHora = new javax.swing.JComboBox<>();
         cmbInicioMinutos = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         comboClase = new javax.swing.JComboBox<>();
         cmbFinalizacionHora = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        txtHoraInicio = new javax.swing.JLabel();
+        txtHora = new javax.swing.JLabel();
+        txtMinutos = new javax.swing.JLabel();
+        txtInstructor = new javax.swing.JLabel();
         comboIdClase = new javax.swing.JComboBox<>();
         cmbFinalizacionMinutos = new javax.swing.JComboBox<>();
         comboInstructor1 = new javax.swing.JComboBox<>();
         comboIdInstructor = new javax.swing.JComboBox<>();
+        Fondo = new javax.swing.JLabel();
         lbId = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabla1.setForeground(new java.awt.Color(0, 0, 0));
+        tabla1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -89,7 +88,7 @@ public class PanelHorario extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "NOMBRE CLASE", "FECHA", "HORA iNICIO", "HORA FINALIZACION", "INSTRUCTOR"
+                "ID", "NOMBRE CLASE", "FECHA", "HORA INICIO", "HORA FINALIZACION", "INSTRUCTOR"
             }
         ) {
             Class[] types = new Class [] {
@@ -107,67 +106,62 @@ public class PanelHorario extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla1.setGridColor(new java.awt.Color(255, 153, 0));
+        tabla1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tabla1.getTableHeader().setReorderingAllowed(false);
         TablaInstructores.setViewportView(tabla1);
 
-        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 647, 410));
+        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 647, 410));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rbNuevahorario.setText("Crear Nueva Horario");
+        txtNuevoHorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Crear nuevo horario.png"))); // NOI18N
+        jPanel1.add(txtNuevoHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        txtActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Actualizar0.2.png"))); // NOI18N
+        jPanel1.add(txtActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+
         rbNuevahorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbNuevahorarioActionPerformed(evt);
             }
         });
-        jPanel1.add(rbNuevahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 14, -1, -1));
+        jPanel1.add(rbNuevahorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        btnselecionar.setText("Seleccionar");
+        btnselecionar.setBackground(new java.awt.Color(255, 153, 51));
+        btnselecionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Seleccionar.png"))); // NOI18N
         btnselecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnselecionarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnselecionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 12, -1, -1));
+        jPanel1.add(btnselecionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 120, 20));
 
-        rbAcutalizar.setText("Actualizar");
         rbAcutalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbAcutalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(rbAcutalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 52, -1, -1));
+        jPanel1.add(rbAcutalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Eliminar.png"))); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 90, -1));
-
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel1.setText("Clase");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel2.setText("Hora Finalizacion");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel3.setText("Año");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, -1, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 120, 20));
 
         btnRegistrar.setBackground(new java.awt.Color(246, 104, 68));
         btnRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setText("Registrar");
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Registrar_.png"))); // NOI18N
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 140, 50));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 150, 40));
 
         cmbfechaYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023" }));
         cmbfechaYear.addActionListener(new java.awt.event.ActionListener() {
@@ -193,17 +187,37 @@ public class PanelHorario extends javax.swing.JPanel {
         });
         jPanel1.add(cmbfechaMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel5.setText("Fecha");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        txtFecha.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fecha.png"))); // NOI18N
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel6.setText("Dia");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        txtDia.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Día.png"))); // NOI18N
+        jPanel1.add(txtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel7.setText("Mes");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
+        txtMes.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtMes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Mes.png"))); // NOI18N
+        jPanel1.add(txtMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+
+        txtAño.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtAño.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Año.png"))); // NOI18N
+        jPanel1.add(txtAño, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+
+        txtHoraFinalizacion.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtHoraFinalizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Hora Finalización.png"))); // NOI18N
+        jPanel1.add(txtHoraFinalizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 120, -1));
+
+        txtHora_.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtHora_.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Hora.png"))); // NOI18N
+        jPanel1.add(txtHora_, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        txtMinutos_.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtMinutos_.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Minutos.png"))); // NOI18N
+        jPanel1.add(txtMinutos_, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        txtClase.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Clase.png"))); // NOI18N
+        jPanel1.add(txtClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 60, -1));
 
         cmbInicioHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
         cmbInicioHora.addActionListener(new java.awt.event.ActionListener() {
@@ -221,18 +235,6 @@ public class PanelHorario extends javax.swing.JPanel {
         });
         jPanel1.add(cmbInicioMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel8.setText("Minutos");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel9.setText("Hora");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel10.setText("Minutos");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
-
         comboClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboClaseActionPerformed(evt);
@@ -248,17 +250,23 @@ public class PanelHorario extends javax.swing.JPanel {
         });
         jPanel1.add(cmbFinalizacionHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel11.setText("Hora");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        txtHoraInicio.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtHoraInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Hora Inicio.png"))); // NOI18N
+        txtHoraInicio.setText("Hora Inicio");
+        jPanel1.add(txtHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 50, -1));
 
-        jLabel12.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel12.setText("Hora Inicio");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        txtHora.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtHora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Hora.png"))); // NOI18N
+        jPanel1.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel13.setText("Instructor");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+        txtMinutos.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtMinutos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Minutos.png"))); // NOI18N
+        jPanel1.add(txtMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+
+        txtInstructor.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtInstructor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Instructor.png"))); // NOI18N
+        txtInstructor.setText("Instructor");
+        jPanel1.add(txtInstructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 100, -1));
 
         comboIdClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,9 +296,12 @@ public class PanelHorario extends javax.swing.JPanel {
             }
         });
         jPanel1.add(comboIdInstructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 50, 20));
-        jPanel1.add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 30, 30));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 300, 410));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo Pequeño.png"))); // NOI18N
+        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 410));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 300, 410));
+        add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 30, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 1040, 460));
@@ -408,6 +419,7 @@ public class PanelHorario extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
     private javax.swing.JScrollPane TablaInstructores;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegistrar;
@@ -423,24 +435,26 @@ public class PanelHorario extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboIdClase;
     private javax.swing.JComboBox<String> comboIdInstructor;
     private javax.swing.JComboBox<String> comboInstructor1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbId;
     private javax.swing.JRadioButton rbAcutalizar;
     private javax.swing.JRadioButton rbNuevahorario;
     private javax.swing.JTable tabla1;
+    private javax.swing.JLabel txtActualizar;
+    private javax.swing.JLabel txtAño;
+    private javax.swing.JLabel txtClase;
+    private javax.swing.JLabel txtDia;
+    private javax.swing.JLabel txtFecha;
+    private javax.swing.JLabel txtHora;
+    private javax.swing.JLabel txtHoraFinalizacion;
+    private javax.swing.JLabel txtHoraInicio;
+    private javax.swing.JLabel txtHora_;
+    private javax.swing.JLabel txtInstructor;
+    private javax.swing.JLabel txtMes;
+    private javax.swing.JLabel txtMinutos;
+    private javax.swing.JLabel txtMinutos_;
+    private javax.swing.JLabel txtNuevoHorario;
     // End of variables declaration//GEN-END:variables
 InfoClase infoclase = new InfoClase();
 
@@ -557,6 +571,7 @@ InfoClase infoclase = new InfoClase();
         btnRegistrar.setEnabled(false);
         comboIdClase.setVisible(false);
         comboIdInstructor.setVisible(false);
+        btnEliminar.setEnabled(false);
     }
 
     public void abilitados() {
@@ -570,5 +585,6 @@ InfoClase infoclase = new InfoClase();
         cmbfechaMes.setEnabled(true);
         cmbfechaYear.setEnabled(true);
         btnRegistrar.setEnabled(true);
+        btnEliminar.setEnabled(true);
     }
 }

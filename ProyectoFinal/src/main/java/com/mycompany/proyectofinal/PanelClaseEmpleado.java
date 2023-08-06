@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author shang
  */
-public class PanelClase extends javax.swing.JPanel {
+public class PanelClaseEmpleado extends javax.swing.JPanel {
 
     /**
      * Creates new form clase
      */
-    public PanelClase() {
+    public PanelClaseEmpleado() {
         initComponents();
         llenarTabla();
         desabilitados();
@@ -37,23 +37,25 @@ public class PanelClase extends javax.swing.JPanel {
         TablaInstructores = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
+        CrearNuevaClase = new javax.swing.JLabel();
         rbNuevaClase = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        txtDescripcion = new javax.swing.JTextField();
-        txtCupoMaximo = new javax.swing.JTextField();
+        Actualizar = new javax.swing.JLabel();
         rbAcutalizar = new javax.swing.JRadioButton();
-        txtNombreClase2 = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        txtNombreClase = new javax.swing.JLabel();
+        txtNombreClase2 = new javax.swing.JTextField();
+        txtDesc = new javax.swing.JLabel();
+        txtDescripcion = new javax.swing.JTextField();
+        txtCupoMax = new javax.swing.JLabel();
+        txtCupoMaximo = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
+        FondoPeq = new javax.swing.JLabel();
         lbid = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabla1.setForeground(new java.awt.Color(0, 0, 0));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,7 +89,9 @@ public class PanelClase extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        rbNuevaClase.setText("Crear Nueva Clase");
+        CrearNuevaClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Crear Nueva Clase.png"))); // NOI18N
+        jPanel1.add(CrearNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
         rbNuevaClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbNuevaClaseActionPerformed(evt);
@@ -95,61 +99,67 @@ public class PanelClase extends javax.swing.JPanel {
         });
         jPanel1.add(rbNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 14, -1, -1));
 
-        jButton1.setText("Seleccionar");
+        jButton1.setBackground(new java.awt.Color(255, 153, 51));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Seleccionar.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 12, -1, -1));
-        jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 290, 30));
-        jPanel1.add(txtCupoMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 290, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 12, 120, 30));
 
-        rbAcutalizar.setText("Actualizar");
+        Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Actualizar.png"))); // NOI18N
+        jPanel1.add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 70, -1));
+
         rbAcutalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbAcutalizarActionPerformed(evt);
             }
         });
         jPanel1.add(rbAcutalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 52, -1, -1));
-        jPanel1.add(txtNombreClase2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 132, 290, 30));
 
-        btnEliminar.setText("Eliminar");
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Eliminar.png"))); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 90, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 90, 20));
 
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel1.setText("Descripcion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        txtNombreClase.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtNombreClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Nombre Clase.png"))); // NOI18N
+        jPanel1.add(txtNombreClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jPanel1.add(txtNombreClase2, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 132, 290, 30));
 
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel2.setText("Cupo Maximo");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        txtDesc.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtDesc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Descripción.png"))); // NOI18N
+        jPanel1.add(txtDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 290, 30));
 
-        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
-        jLabel3.setText("Nombre Clase");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 109, -1, -1));
+        txtCupoMax.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
+        txtCupoMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Cupo Maximo.png"))); // NOI18N
+        jPanel1.add(txtCupoMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        jPanel1.add(txtCupoMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 290, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(246, 104, 68));
         btnRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setText("Registrar");
+        btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Registrar_.png"))); // NOI18N
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 314, 140, 50));
-        jPanel1.add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 98, 32, 28));
+        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 140, 40));
+
+        FondoPeq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
+        jPanel1.add(FondoPeq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 380));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, 380));
+        add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 40, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 450));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 450));
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbNuevaClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNuevaClaseActionPerformed
@@ -157,7 +167,7 @@ public class PanelClase extends javax.swing.JPanel {
         if (rbNuevaClase.isSelected()) {
             limpiar();
             rbAcutalizar.setSelected(false);
-            abilitados();
+            habilitado();
         }
     }//GEN-LAST:event_rbNuevaClaseActionPerformed
 
@@ -184,7 +194,7 @@ public class PanelClase extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (rbAcutalizar.isSelected()) {
             rbNuevaClase.setSelected(false);
-            abilitados();
+            habilitado();
         }
     }//GEN-LAST:event_rbAcutalizarActionPerformed
 
@@ -226,21 +236,24 @@ public class PanelClase extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Actualizar;
+    private javax.swing.JLabel CrearNuevaClase;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel FondoPeq;
     private javax.swing.JScrollPane TablaInstructores;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbid;
     private javax.swing.JRadioButton rbAcutalizar;
     private javax.swing.JRadioButton rbNuevaClase;
     private javax.swing.JTable tabla1;
+    private javax.swing.JLabel txtCupoMax;
     private javax.swing.JTextField txtCupoMaximo;
+    private javax.swing.JLabel txtDesc;
     private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JLabel txtNombreClase;
     private javax.swing.JTextField txtNombreClase2;
     // End of variables declaration//GEN-END:variables
 InfoClase infoclase = new InfoClase();
@@ -316,13 +329,16 @@ InfoClase infoclase = new InfoClase();
         txtDescripcion.setEnabled(false);
         txtCupoMaximo.setEnabled(false);
         btnRegistrar.setEnabled(false);
+        btnEliminar.setEnabled(false);
+
     }
 
-    public void abilitados() {
+    public void habilitado() {
         txtNombreClase2.setEnabled(true);
         txtDescripcion.setEnabled(true);
         txtCupoMaximo.setEnabled(true);
         btnRegistrar.setEnabled(true);
+        btnEliminar.setEnabled(true);
     }
 
 }

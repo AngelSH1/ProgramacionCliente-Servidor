@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.proyectofinal;
 
 import java.sql.Connection;
@@ -14,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -103,6 +100,119 @@ public class InfoClase {
     }
 /////////////////>>>>>>>>>><tabla de horarios<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+//METODOS RUTINAS    
+    public void insertarRutina(String grupoMuscular, String ejercicio, int series, int repeticiones) {
+        try {
+            ///abrimos conexion
+            conexion.setConexion();
+            //definimos la consulta
+            conexion.setConsulta("insert into tab_rutinas(nombre_rutina, nombre_ejercicio, series, repeticiones)"
+                    + "values(?,?,?,?)");
+            conexion.getConsulta().setString(1, grupoMuscular);
+            conexion.getConsulta().setString(2, ejercicio);
+            conexion.getConsulta().setInt(3, series);
+            conexion.getConsulta().setInt(4, repeticiones);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Registro Guardado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }  
+    
+        public DefaultTableModel consultaParaRutinas() throws SQLException {
+        PreparedStatement consulta = null;
+        ResultSet resultado = null;
+        DefaultTableModel model = null;
+        Connection conectado = conexion.crearConexion();
+        try {
+            consulta = conectado.prepareStatement("select id_rutina, nombre_rutina, nombre_ejercicio, series, repeticiones from tab_rutinas");
+            ///extraer los datos de mysql y las guardamos en java
+            resultado = consulta.executeQuery();
+            ///recorrer las columnas de la consulta
+            model = buildTableModel(resultado);
+            while (resultado.next()) {
+                int id = resultado.getInt("id_rutina");
+                String nombreRutina = resultado.getString("nombre_rutina");
+                String nombreEjercicio = resultado.getString("nombre_ejercicio");
+                int series = resultado.getInt("series");
+                int repeticiones = resultado.getInt("repeticiones");
+                System.out.println("Id: " + id + 
+                        " Nombre de la rutina: \n" + nombreRutina + 
+                        " Nombre del ejercicio: \n" + nombreEjercicio + 
+                        " Series: \n" + series +
+                        " Repeticiones: " + repeticiones);
+            }
+            //model = buildTableModel(resultado);
+        } catch (SQLException error) {
+            error.printStackTrace();
+        } finally {////limpia los resultados obtenidos a l hacer la consulta
+            if (resultado != null) {
+                try {
+                    resultado.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+
+            if (consulta != null) {
+                try {
+                    consulta.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+        }
+        return model;
+    }
+        
+    public void modificarRutina(String grupoMuscular, String ejercicio, int series, int repeticiones, int id) {
+        try {
+            ///abricmos conexion
+            conexion.setConexion();
+            //definimos la consulta
+            conexion.setConsulta("update tab_rutinas set NOMBRE_RUTINA = ?, NOMBRE_EJERCICIO = ?, SERIES = ?, REPETICIONES = ? where id_rutina = ?");
+            conexion.getConsulta().setString(1, grupoMuscular);
+            conexion.getConsulta().setString(2, ejercicio);
+            conexion.getConsulta().setInt(3, series);
+            conexion.getConsulta().setInt(4, repeticiones);
+            conexion.getConsulta().setInt(5, id);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Registro Actualizado");
+                System.out.println("Registro Modificado");
+            } else {
+                System.out.println("Error en la operacion");
+                JOptionPane.showMessageDialog(null, "Para poder actualizar debes seleccionar la fila y clickear en ´Seleccionar´.");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }    
+        
+    public void eliminarRutina(int id) {
+        try {
+            ///abricmos conexion
+            conexion.setConexion();
+            //definimos la consulta
+            conexion.setConsulta("delete from tab_rutinas where id_rutina = ?");
+            conexion.getConsulta().setInt(1, id);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Registro Eliminado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }    
+    
+    
+ //FIN METODOS RUTINAS  
     public void insertarClase(String Nombre, String descripcion, int cupo) {
         try {
             ///abricmos conexion

@@ -60,7 +60,7 @@ public class Inicio extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         campoContraseña = new javax.swing.JPasswordField();
         campoUsuario = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,15 +106,15 @@ public class Inicio extends javax.swing.JFrame {
         });
         getContentPane().add(campoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 310, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/IngresoPeq.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 600));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/IngresoPeq.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
         // TODO add your handling code here:
-        CreacionUsuario creacionUser = new CreacionUsuario();
+        CreacionUsuarioCliente creacionUser = new CreacionUsuarioCliente();
         creacionUser.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCrearUsuarioActionPerformed
@@ -172,10 +172,10 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnCrearUsuario;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JPasswordField campoContraseña;
     private javax.swing.JTextField campoUsuario;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
