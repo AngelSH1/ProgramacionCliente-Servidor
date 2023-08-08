@@ -18,7 +18,13 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
     public CreacionUsuarioCliente() {
         initComponents();
     }
-
+    private boolean volver;
+    
+    public void RegresarInicio(){
+        Inicio ventanaInicio = new Inicio();
+        ventanaInicio.setVisible(true);
+        this.dispose(); 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -142,8 +148,7 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         Funciones funcion = new Funciones();
         funcion.guardarDatos(textoNombre, textoContraseña, textoVerificacionContraseña, textoCliente);
-
-
+        RegresarInicio();
     }//GEN-LAST:event_enviarNuevoUsuarioActionPerformed
 
     private void enviarNuevoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarNuevoUsuarioMouseClicked
@@ -163,9 +168,7 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
     private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
         // TODO add your handling code here:
         //Volver al inicio sin crear usuario
-        Inicio ventanaInicio = new Inicio();
-        ventanaInicio.setVisible(true);
-        this.dispose();
+        RegresarInicio();
     }//GEN-LAST:event_IngresarMouseClicked
 
     private void IngresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseExited

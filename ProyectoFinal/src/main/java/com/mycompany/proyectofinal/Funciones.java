@@ -72,7 +72,7 @@ public class Funciones {
         try {
             usuario = textField1.getText();
             contraseña = textField2.getText();
-            //perfil = campoCliente.getText();
+            //rol = campoCliente.getText();
 
             if (campos(textField1, textField2, textField3)) {
                 throw new Exception();

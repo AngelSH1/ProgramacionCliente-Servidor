@@ -13,11 +13,12 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BotonRegistrar = new javax.swing.JButton();
-        CampoPuesto = new javax.swing.JTextField();
-        CampoNombreInstructor = new javax.swing.JTextField();
-        CampoSalario = new javax.swing.JTextField();
-        CampoCedula = new javax.swing.JTextField();
+        botonEliminar = new javax.swing.JButton();
+        Actualizar = new javax.swing.JButton();
+        botonRegistrar = new javax.swing.JButton();
+        campoEspecialidad = new javax.swing.JTextField();
+        campoNombre = new javax.swing.JTextField();
+        campoApellido = new javax.swing.JTextField();
         FondoRegistroUsuarios = new javax.swing.JLabel();
         TablaInstructores = new javax.swing.JScrollPane();
         Instructores = new javax.swing.JTable();
@@ -27,20 +28,41 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(990, 460));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonRegistrar.setBackground(new java.awt.Color(246, 104, 68));
-        BotonRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
-        BotonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        BotonRegistrar.setText("Registrar");
-        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminar.setBackground(new java.awt.Color(246, 104, 68));
+        botonEliminar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        botonEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        botonEliminar.setText("Eliminar");
+        botonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonRegistrarActionPerformed(evt);
+                botonEliminarActionPerformed(evt);
             }
         });
-        add(BotonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, 140, 50));
-        add(CampoPuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 320, 30));
-        add(CampoNombreInstructor, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 320, 30));
-        add(CampoSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 320, 30));
-        add(CampoCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 320, 30));
+        add(botonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 140, 50));
+
+        Actualizar.setBackground(new java.awt.Color(246, 104, 68));
+        Actualizar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        Actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        Actualizar.setText("Registrar");
+        Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarActionPerformed(evt);
+            }
+        });
+        add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, 140, 50));
+
+        botonRegistrar.setBackground(new java.awt.Color(246, 104, 68));
+        botonRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
+        botonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        botonRegistrar.setText("Registrar");
+        botonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarActionPerformed(evt);
+            }
+        });
+        add(botonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, 140, 50));
+        add(campoEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 280, 30));
+        add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 320, 30));
+        add(campoApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, 320, 30));
 
         FondoRegistroUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Registro de Instructores.png"))); // NOI18N
@@ -65,20 +87,29 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
+    private void botonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonRegistrarActionPerformed
+    }//GEN-LAST:event_botonRegistrarActionPerformed
+
+    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ActualizarActionPerformed
+
+    private void botonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonRegistrar;
-    private javax.swing.JTextField CampoCedula;
-    private javax.swing.JTextField CampoNombreInstructor;
-    private javax.swing.JTextField CampoPuesto;
-    private javax.swing.JTextField CampoSalario;
+    private javax.swing.JButton Actualizar;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoRegistroUsuarios;
     private javax.swing.JTable Instructores;
     private javax.swing.JScrollPane TablaInstructores;
+    private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonRegistrar;
+    private javax.swing.JTextField campoApellido;
+    private javax.swing.JTextField campoEspecialidad;
+    private javax.swing.JTextField campoNombre;
     // End of variables declaration//GEN-END:variables
 }

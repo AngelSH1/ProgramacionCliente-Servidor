@@ -26,12 +26,10 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         BotonActualizarUsuario = new javax.swing.JButton();
         BotonBorrarUsuario = new javax.swing.JButton();
         BotonRegistarUsuario = new javax.swing.JButton();
-        CampoCodigo = new javax.swing.JTextField();
-        CampoNombre = new javax.swing.JTextField();
-        CampoApellidos = new javax.swing.JTextField();
+        campoNombre = new javax.swing.JTextField();
+        campoContraseña = new javax.swing.JTextField();
         CampoBuscarUsuario = new javax.swing.JTextField();
-        CampoFecha = new javax.swing.JTextField();
-        CampoCedula1 = new javax.swing.JTextField();
+        campoVerContraseña = new javax.swing.JTextField();
         FondoRegistroUsuarios = new javax.swing.JLabel();
         TablaUsuarios = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -43,7 +41,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         campoConstEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado" }));
-        add(campoConstEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, -1, -1));
+        add(campoConstEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, -1));
 
         BotonBuscarUsuario.setBackground(new java.awt.Color(246, 104, 68));
         BotonBuscarUsuario.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
@@ -88,16 +86,14 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
             }
         });
         add(BotonRegistarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 140, 50));
-        add(CampoCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 320, 30));
-        add(CampoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, 320, 30));
-        add(CampoApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 320, 30));
+        add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 320, 30));
+        add(campoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 320, 30));
         add(CampoBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 70, 20));
-        add(CampoFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 320, 30));
-        add(CampoCedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, 320, 30));
+        add(campoVerContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 320, 30));
 
         FondoRegistroUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Registro de Usuarios.png"))); // NOI18N
-        add(FondoRegistroUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+        FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Registro de Usuarios Internos.png"))); // NOI18N
+        add(FondoRegistroUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 550, 420));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,17 +139,15 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     private javax.swing.JButton BotonBorrarUsuario;
     private javax.swing.JButton BotonBuscarUsuario;
     private javax.swing.JButton BotonRegistarUsuario;
-    private javax.swing.JTextField CampoApellidos;
     private javax.swing.JTextField CampoBuscarUsuario;
-    private javax.swing.JTextField CampoCedula1;
-    private javax.swing.JTextField CampoCodigo;
-    private javax.swing.JTextField CampoFecha;
-    private javax.swing.JTextField CampoNombre;
     private javax.swing.JLabel Codigo;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoRegistroUsuarios;
     private javax.swing.JScrollPane TablaUsuarios;
     private javax.swing.JComboBox<String> campoConstEmpleado;
+    private javax.swing.JTextField campoContraseña;
+    private javax.swing.JTextField campoNombre;
+    private javax.swing.JTextField campoVerContraseña;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
