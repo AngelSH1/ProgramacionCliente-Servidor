@@ -90,7 +90,7 @@ public class PanelClaseEmpleado extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         CrearNuevaClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Crear Nueva Clase.png"))); // NOI18N
-        jPanel1.add(CrearNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jPanel1.add(CrearNuevaClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         rbNuevaClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class PanelClaseEmpleado extends javax.swing.JPanel {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 12, 120, 30));
 
         Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Actualizar.png"))); // NOI18N
-        jPanel1.add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 70, -1));
+        jPanel1.add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 70, -1));
 
         rbAcutalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class PanelClaseEmpleado extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 90, 20));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 50, 100, 30));
 
         txtNombreClase.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         txtNombreClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Nombre Clase.png"))); // NOI18N
@@ -154,9 +154,9 @@ public class PanelClaseEmpleado extends javax.swing.JPanel {
 
         FondoPeq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         jPanel1.add(FondoPeq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 380));
+        jPanel1.add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 40, 50));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, 380));
-        add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 40, 50));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 450));
@@ -214,13 +214,12 @@ public class PanelClaseEmpleado extends javax.swing.JPanel {
             }
         } else {
             // Si no hay fila seleccionada, muestra un mensaje de error
-            JOptionPane.showMessageDialog(null, "Selecciona una fila Para Acutalizar.");
+            JOptionPane.showMessageDialog(null, "Selecciona una fila Para Eliminar.");
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-        //insertaDatos();
+
         try {
             if (rbNuevaClase.isSelected()) {
                 insertaDatos();
@@ -329,7 +328,7 @@ InfoClase infoclase = new InfoClase();
         txtDescripcion.setEnabled(false);
         txtCupoMaximo.setEnabled(false);
         btnRegistrar.setEnabled(false);
-        btnEliminar.setEnabled(false);
+        btnEliminar.setEnabled(true);
 
     }
 

@@ -107,7 +107,7 @@ public class PanelHorarioEmpleado extends javax.swing.JPanel {
             }
         });
         tabla1.setGridColor(new java.awt.Color(255, 153, 0));
-        tabla1.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        tabla1.setSelectionBackground(new java.awt.Color(102, 102, 255));
         tabla1.getTableHeader().setReorderingAllowed(false);
         TablaInstructores.setViewportView(tabla1);
 

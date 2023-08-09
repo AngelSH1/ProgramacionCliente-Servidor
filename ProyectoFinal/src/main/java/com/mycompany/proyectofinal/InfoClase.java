@@ -377,7 +377,92 @@ public class InfoClase {
 
         return nombresInstructores;
     }
+    ////METODOS PARA TABLA INSTRUCTORES
+    public DefaultTableModel consultaParaInstructores() throws SQLException {
+        PreparedStatement consulta = null;
+        ResultSet resultado = null;
+        DefaultTableModel model = null;
+        Connection conectado = conexion.crearConexion();
+        try {
+            consulta = conectado.prepareStatement("SELECT ID_INSTRUCTOR, NOMBRE, APELLIDO, ESPECIALIDAD FROM TAB_INSTRUCTORES");
+            resultado = consulta.executeQuery();
+            model = buildTableModel(resultado);
+        } catch (SQLException error) {
+            error.printStackTrace();
+        } finally {////limpia los resultados obtenidos a l hacer la consulta
+            if (resultado != null) {
+                try {
+                    resultado.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
 
+            if (consulta != null) {
+                try {
+                    consulta.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+        }
+        return model;
+    }
+    public void insertarIntructor(String nombre, String apellido, String especialidad) {
+        try {
+            conexion.setConexion();
+            conexion.setConsulta("insert into tab_instructores(nombre, apellido, especialidad)"
+                    + "values(?,?,?)");
+            conexion.getConsulta().setString(1, nombre);
+            conexion.getConsulta().setString(2, apellido);
+            conexion.getConsulta().setString(3, especialidad);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Registro Guardado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void modificarInstructor(int id, String nombre, String apellido, String especialidad) {
+        try {
+            conexion.setConexion();
+            conexion.setConsulta("update tab_instructores set nombre = ?, apellido = ?, especialidad = ? where id_instructor = ?");
+            conexion.getConsulta().setString(1, nombre);
+            conexion.getConsulta().setString(2, apellido);
+            conexion.getConsulta().setString(3, especialidad);
+            conexion.getConsulta().setInt(4, id);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Registro Modificado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void eliminarInstructor(int id) {
+        try {
+            conexion.setConexion();
+            conexion.setConsulta("delete from tab_instructores where id_instructor = ?");
+            conexion.getConsulta().setInt(1, id);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Registro Eliminado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    ///FIN METODOS TABLA INSTRUCTORES
     public ArrayList<String> cargarIdClases() {
         ArrayList<String> nombresInstructores = new ArrayList<>();
         try {
