@@ -134,6 +134,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         // TODO add your handling code here:
         FuncionEmpleado funcion = new FuncionEmpleado();
         funcion.guardarDatos(campoNombre, campoContraseña, campoVerContraseña, campoRol);
+        funcion.llenarTabla();
     }//GEN-LAST:event_BotonRegistarUsuarioActionPerformed
 
     private void BotonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarUsuarioActionPerformed
@@ -145,7 +146,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     private void BotonActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarUsuarioActionPerformed
         // TODO add your handling code here:
         FuncionEmpleado funcion = new FuncionEmpleado();
-        funcion.llenarTabla();
+
     }//GEN-LAST:event_BotonActualizarUsuarioActionPerformed
 
     private void BotonBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarUsuarioActionPerformed
