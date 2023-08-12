@@ -104,9 +104,8 @@ public class FuncionEmpleado {
                 llenarTabla();
             } else {
                 JOptionPane.showMessageDialog(null, "Eliminación cancelada.");
+                JOptionPane.showMessageDialog(null, "Seleccione una fila para actualizar.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione una fila para actualizar.");
         }
     }
 
