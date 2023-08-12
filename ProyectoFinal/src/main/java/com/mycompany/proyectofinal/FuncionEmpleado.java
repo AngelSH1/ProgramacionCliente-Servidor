@@ -110,7 +110,7 @@ public class FuncionEmpleado {
         }
     }
 
-    public void modificarColumna(String usuario, String contraseña) {
+    public void modificarColumna(int idEmpleado) {
         try {
 
             conexion.setConexion();
