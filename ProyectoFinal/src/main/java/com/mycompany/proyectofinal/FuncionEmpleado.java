@@ -74,6 +74,24 @@ public class FuncionEmpleado {
         }
     }
 
+    private void eliminarEstudiante(int id) {
+        try {
+            conexion.setConexion();
+            conexion.setConsulta("delete from estudiante where id = ?");
+            conexion.getConsulta().setInt(1, id);
+
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Estudiante eliminado!");
+            } else {
+                System.out.println("Error en la operación!");
+            }
+
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void seleccionarEmpleado() {
         int filaSeleccionada = tablaEmpleado.getSelectedRow();
         if (filaSeleccionada != -1) {
@@ -92,18 +110,22 @@ public class FuncionEmpleado {
         }
     }
 
-    private void eliminarEstudiante(int id) {
+    public void modificarColumna(String usuario, String contraseña) {
         try {
+
             conexion.setConexion();
-            conexion.setConsulta("delete from estudiante where id = ?");
-            conexion.getConsulta().setInt(1, id);
+            conexion.setConsulta("update tab_usuarios usuario = ?, contraseña = ?, where id = ?");
+            //conexion.getConsulta().setString(1, id);
+            conexion.getConsulta().setString(2, usuario);
+            conexion.getConsulta().setString(3, contraseña);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.println("Estudiante eliminado!");
-            } else {
-                System.out.println("Error en la operación!");
-            }
+                JOptionPane.showMessageDialog(null, "Registro Actualizado");
 
+            } else {
+                System.out.println("Error en la operacion");
+
+            }
             conexion.cerrarConexion();
         } catch (SQLException e) {
             e.printStackTrace();
