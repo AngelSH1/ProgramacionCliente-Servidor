@@ -49,7 +49,7 @@ public class Funciones {
                 JOptionPane.showMessageDialog(null, "Campos en Blanco");
                 throw new Exception();
             } else {
-                if (existeUsuario2(textField1)) {
+                if (existeUsuario(textField1)) {
                     MenuPrincipalEmpleado ventanaMenuPrincipal = new MenuPrincipalEmpleado();
                     ventanaMenuPrincipal.setVisible(true);
 
@@ -112,24 +112,6 @@ public class Funciones {
     }
 
     private boolean existeUsuario(JTextField textField1) {
-        try {
-            conexion.setConexion();
-            conexion.setConsulta("select count(*) from tab_usuarios WHERE usuario = ?");
-            conexion.getConsulta().setString(1, textField1.getText());
-            if (resultado.next()) {
-                int cuenta = resultado.getInt(1);
-                return cuenta > 0;
-            }
-
-            conexion.cerrarConexion();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-
-    }
-
-    private boolean existeUsuario2(JTextField textField1) {
         try {
             conexion.setConexion();
             conexion.setConsulta("SELECT count(*) FROM tab_usuarios WHERE usuario = ?");

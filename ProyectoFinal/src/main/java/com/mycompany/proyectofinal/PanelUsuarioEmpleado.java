@@ -1,4 +1,5 @@
 package com.mycompany.proyectofinal;
+
 /**
  *
  * @author Dabney Arosemena Alpízar
@@ -10,6 +11,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
      */
     public PanelUsuarioEmpleado() {
         initComponents();
+
     }
 
     /**
@@ -21,18 +23,18 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoConstEmpleado = new javax.swing.JComboBox<>();
+        campoRol = new javax.swing.JComboBox<>();
         BotonBuscarUsuario = new javax.swing.JButton();
         BotonActualizarUsuario = new javax.swing.JButton();
         BotonBorrarUsuario = new javax.swing.JButton();
         BotonRegistarUsuario = new javax.swing.JButton();
         campoNombre = new javax.swing.JTextField();
         campoContraseña = new javax.swing.JTextField();
-        CampoBuscarUsuario = new javax.swing.JTextField();
+        campoID = new javax.swing.JTextField();
         campoVerContraseña = new javax.swing.JTextField();
         FondoRegistroUsuarios = new javax.swing.JLabel();
         TablaUsuarios = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaEmpleado = new javax.swing.JTable();
         Codigo = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
@@ -40,8 +42,13 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(990, 460));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        campoConstEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado" }));
-        add(campoConstEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, -1));
+        campoRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado" }));
+        campoRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoRolActionPerformed(evt);
+            }
+        });
+        add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
         BotonBuscarUsuario.setBackground(new java.awt.Color(246, 104, 68));
         BotonBuscarUsuario.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
@@ -88,14 +95,20 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         add(BotonRegistarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 140, 50));
         add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 320, 30));
         add(campoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 320, 30));
-        add(CampoBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 70, 20));
+
+        campoID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoIDActionPerformed(evt);
+            }
+        });
+        add(campoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 70, 20));
         add(campoVerContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 320, 30));
 
         FondoRegistroUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Registro de Usuarios Internos.png"))); // NOI18N
         add(FondoRegistroUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 550, 420));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -106,7 +119,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        TablaUsuarios.setViewportView(jTable1);
+        TablaUsuarios.setViewportView(tablaEmpleado);
 
         add(TablaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 360));
 
@@ -119,19 +132,33 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     private void BotonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistarUsuarioActionPerformed
         // TODO add your handling code here:
+        FuncionEmpleado funcion = new FuncionEmpleado();
+        funcion.guardarDatos(campoNombre, campoContraseña, campoVerContraseña, campoRol);
     }//GEN-LAST:event_BotonRegistarUsuarioActionPerformed
 
     private void BotonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarUsuarioActionPerformed
         // TODO add your handling code here:
+        FuncionEmpleado funcion = new FuncionEmpleado();
+        funcion.seleccionarEmpleado();
     }//GEN-LAST:event_BotonBorrarUsuarioActionPerformed
 
     private void BotonActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarUsuarioActionPerformed
         // TODO add your handling code here:
+        FuncionEmpleado funcion = new FuncionEmpleado();
+        funcion.llenarTabla();
     }//GEN-LAST:event_BotonActualizarUsuarioActionPerformed
 
     private void BotonBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonBuscarUsuarioActionPerformed
+
+    private void campoRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoRolActionPerformed
+
+    private void campoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoIDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -139,15 +166,15 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     private javax.swing.JButton BotonBorrarUsuario;
     private javax.swing.JButton BotonBuscarUsuario;
     private javax.swing.JButton BotonRegistarUsuario;
-    private javax.swing.JTextField CampoBuscarUsuario;
     private javax.swing.JLabel Codigo;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoRegistroUsuarios;
     private javax.swing.JScrollPane TablaUsuarios;
-    private javax.swing.JComboBox<String> campoConstEmpleado;
     private javax.swing.JTextField campoContraseña;
+    private javax.swing.JTextField campoID;
     private javax.swing.JTextField campoNombre;
+    private javax.swing.JComboBox<String> campoRol;
     private javax.swing.JTextField campoVerContraseña;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaEmpleado;
     // End of variables declaration//GEN-END:variables
 }
