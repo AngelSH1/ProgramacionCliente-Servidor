@@ -35,6 +35,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Empleado agregado");
                 campoNombre.setText("");
                 campoContraseña.setText("");
+                campoVerContraseña.setText("");
                 campoRol.setSelectedItem("");
                 //llenarTabla();
             } else {
@@ -76,7 +77,6 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
             if (opcion == JOptionPane.YES_OPTION) {
                 infoClase.modificarEmpleado(id, usuario, contraseña, rol);
                 llenarTabla();
-                //limpiar();
 
             } else {
                 JOptionPane.showMessageDialog(null, "Actualización cancelada.");
