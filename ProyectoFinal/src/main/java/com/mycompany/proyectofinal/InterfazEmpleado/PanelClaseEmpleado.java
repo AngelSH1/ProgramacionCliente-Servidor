@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazEmpleado;
 
+import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.util.logging.Level;

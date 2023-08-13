@@ -1,5 +1,6 @@
 package com.mycompany.proyectofinal;
 
+import com.mycompany.proyectofinal.InterfazEmpleado.MenuPrincipalEmpleado;
 import java.sql.*;
 import javax.swing.*;
 

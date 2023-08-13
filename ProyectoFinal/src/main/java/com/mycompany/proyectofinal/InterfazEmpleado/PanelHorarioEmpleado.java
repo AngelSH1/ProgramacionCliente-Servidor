@@ -1,5 +1,6 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazEmpleado;
 
+import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;

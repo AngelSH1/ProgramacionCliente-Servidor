@@ -1,5 +1,6 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazEmpleado;
 
+import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -178,7 +179,6 @@ public class PanelRutinaEmpleado extends javax.swing.JPanel {
         CampoEjercicio.setText(Rutinas.getValueAt(fila, 2).toString());
         CampoSeries.setText(Rutinas.getValueAt(fila, 3).toString());
         CampoRepeticiones.setText(Rutinas.getValueAt(fila, 4).toString());
-        
     }//GEN-LAST:event_RutinasMouseClicked
 
     private void btnselecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnselecionarActionPerformed

@@ -1,5 +1,6 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazCliente;
 
+import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -134,8 +135,8 @@ public class PanelRutinaCliente extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     InfoClase infoClase = new InfoClase();
-/*//INSERTAR RUTINA
-        public void insertaDatosRutina() {
+//INSERTAR RUTINA
+        /*public void insertaDatosRutina() {
         try {
             String grupoMuscular = (String) CampoGrupoM.getSelectedItem();
             String ejercicio = CampoEjercicio.getText();
@@ -158,50 +159,10 @@ public class PanelRutinaCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Formato de datos no valido");
             e.printStackTrace();
         }
-    }
-//ELIMINAR RUTINA 
-    public void eliminarDatosRutina() {    
-    int filaSeleccionada = Rutinas.getSelectedRow();
-        if (filaSeleccionada != -1) {
-            // Obtener los valores de la fila seleccionada
-            int idRutina = (int) Rutinas.getValueAt(filaSeleccionada, 0);
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este registro?",
-                    "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
+    }*/
 
-            if (opcion == JOptionPane.YES_OPTION) {
-                infoClase.eliminarRutina(idRutina);
-                llenarTabla();
-            } else {
-                JOptionPane.showMessageDialog(null, "Eliminación cancelada.");
-            }
-        } else {
-            // Si no hay fila seleccionada, muestra un mensaje de error
-            JOptionPane.showMessageDialog(null, "Selecciona una fila Para Acutalizar.");
-        }
-    }    
-//MODIFICAR RUTINA      
-    public void ModificarRutina() {
-        try {
-            String grupoMuscular = (String) CampoGrupoM.getSelectedItem();
-            String ejercicio = CampoEjercicio.getText();
-            int series = Integer.parseInt(CampoSeries.getText());
-            int repeticiones = Integer.parseInt(CampoRepeticiones.getText());
-            int id = Integer.parseInt(lbId.getText());
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de actualizar estos datos?",
-                    "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
-            if (opcion == JOptionPane.YES_OPTION) {
-                infoClase.modificarRutina(grupoMuscular, ejercicio, series, repeticiones, id);
-                llenarTabla();
-                //limpiar();
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Actualización cancelada.");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Formato de datos no valido");
-            e.printStackTrace();
-        }
-    }
+    
+    
 //LLENAR TABLA    
     public void llenarTabla() {
         InfoClase f = new InfoClase();
@@ -216,20 +177,6 @@ public class PanelRutinaCliente extends javax.swing.JPanel {
             // Aquí puedes agregar algún mensaje de error en caso de que ocurra un problema con la consulta
         }
     }
-//Habilitar/Deshabilitar 
-        public void desabilitado() {
-        CampoGrupoM.setEnabled(false);
-        CampoEjercicio.setEnabled(false);
-        CampoRepeticiones.setEnabled(false);
-        CampoSeries.setEnabled(false);
-    }
-
-    public void habilitado() {
-        CampoGrupoM.setEnabled(true);
-        CampoEjercicio.setEnabled(true);
-        CampoRepeticiones.setEnabled(true);
-        CampoSeries.setEnabled(true);
-    }*/
 }
 
 

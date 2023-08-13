@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyectofinal;
 
+import com.mycompany.proyectofinal.InterfazCliente.CreacionUsuarioCliente;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -52,6 +53,11 @@ public class Inicio extends javax.swing.JFrame {
         }); 
     }
     
+    public void idUsuarioLog(){
+        Inicio i = new Inicio();
+        idUsuario.setText(String.valueOf(campoUsuario));
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -61,6 +67,7 @@ public class Inicio extends javax.swing.JFrame {
         campoContraseña = new javax.swing.JPasswordField();
         campoUsuario = new javax.swing.JTextField();
         Fondo = new javax.swing.JLabel();
+        idUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,6 +115,7 @@ public class Inicio extends javax.swing.JFrame {
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/IngresoPeq.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 600));
+        getContentPane().add(idUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,5 +185,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JPasswordField campoContraseña;
     private javax.swing.JTextField campoUsuario;
+    private javax.swing.JLabel idUsuario;
     // End of variables declaration//GEN-END:variables
 }

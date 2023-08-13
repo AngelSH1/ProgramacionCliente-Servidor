@@ -1,5 +1,6 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazEmpleado;
 
+import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -35,7 +36,7 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         FondoRegistroUsuarios = new javax.swing.JLabel();
         TablaInstructores = new javax.swing.JScrollPane();
-        Instructores = new javax.swing.JTable();
+        tablaInstructores = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(990, 460));
@@ -100,7 +101,7 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
         FondoRegistroUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Registro de Instructores.png"))); // NOI18N
         add(FondoRegistroUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 550, -1));
 
-        Instructores.setModel(new javax.swing.table.DefaultTableModel(
+        tablaInstructores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -111,9 +112,9 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        TablaInstructores.setViewportView(Instructores);
+        TablaInstructores.setViewportView(tablaInstructores);
 
-        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 360));
+        add(TablaInstructores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 410));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
@@ -136,13 +137,13 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int filaSeleccionada = Instructores.getSelectedRow();
+        int filaSeleccionada = tablaInstructores.getSelectedRow();
         if (filaSeleccionada != -1) {
             // Obtener los valores de la fila seleccionada
-            int idInstructor = (int) Instructores.getValueAt(filaSeleccionada, 0);
-            String nombre = (String) Instructores.getValueAt(filaSeleccionada, 1);
-            String apellido = (String) Instructores.getValueAt(filaSeleccionada, 2);
-            String especialidad = (String) Instructores.getValueAt(filaSeleccionada, 3);
+            int idInstructor = (int) tablaInstructores.getValueAt(filaSeleccionada, 0);
+            String nombre = (String) tablaInstructores.getValueAt(filaSeleccionada, 1);
+            String apellido = (String) tablaInstructores.getValueAt(filaSeleccionada, 2);
+            String especialidad = (String) tablaInstructores.getValueAt(filaSeleccionada, 3);
             lbid.setText(String.valueOf(idInstructor));
             campoNombre.setText(nombre);
             campoApellido.setText(apellido);
@@ -154,10 +155,10 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int filaSeleccionada = Instructores.getSelectedRow();
+        int filaSeleccionada = tablaInstructores.getSelectedRow();
         if (filaSeleccionada != -1) {
             // Obtener los valores de la fila seleccionada
-            int idInstructor = (int) Instructores.getValueAt(filaSeleccionada, 0);
+            int idInstructor = (int) tablaInstructores.getValueAt(filaSeleccionada, 0);
             int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este registro?",
                 "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
 
@@ -195,7 +196,6 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel Actualizar;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoRegistroUsuarios;
-    private javax.swing.JTable Instructores;
     private javax.swing.JScrollPane TablaInstructores;
     private javax.swing.JButton botonRegistrar;
     private javax.swing.JButton btnEliminar;
@@ -207,6 +207,7 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel lbid;
     private javax.swing.JRadioButton rbAcutalizar;
     private javax.swing.JRadioButton rbNuevaInstructor;
+    private javax.swing.JTable tablaInstructores;
     // End of variables declaration//GEN-END:variables
 InfoClase infoclase = new InfoClase();
 
@@ -217,7 +218,7 @@ InfoClase infoclase = new InfoClase();
             DefaultTableModel model = f.consultaParaInstructores();
 
             // Actualizar la tabla con los datos obtenidos de la consulta
-            Instructores.setModel(model);
+            tablaInstructores.setModel(model);
         } catch (SQLException ex) {
             ex.printStackTrace();
             // Aquí puedes agregar algún mensaje de error en caso de que ocurra un problema con la consulta
@@ -302,21 +303,21 @@ InfoClase infoclase = new InfoClase();
     }
     public void columnasTamano(){
             TableColumn columna0,columna1,columna2;
-        columna0 = Instructores.getColumnModel().getColumn(0);
+        columna0 = tablaInstructores.getColumnModel().getColumn(0);
         columna0.setPreferredWidth(40);
         columna0.setMaxWidth(40);
         columna0.setMinWidth(40);
         
-        columna1 = Instructores.getColumnModel().getColumn(1);
+        columna1 = tablaInstructores.getColumnModel().getColumn(1);
         columna1.setPreferredWidth(80);
         columna1.setMaxWidth(80);
         columna1.setMinWidth(80);
 
-        columna2 = Instructores.getColumnModel().getColumn(2);
+        columna2 = tablaInstructores.getColumnModel().getColumn(2);
         columna2.setPreferredWidth(80);
         columna2.setMaxWidth(80);
         columna2.setMinWidth(80);
         
-        Instructores.setRowHeight(20);
+        tablaInstructores.setRowHeight(20);
     }
 }

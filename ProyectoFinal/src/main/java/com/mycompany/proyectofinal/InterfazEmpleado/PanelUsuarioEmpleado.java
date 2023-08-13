@@ -1,4 +1,6 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazEmpleado;
+
+import com.mycompany.proyectofinal.FuncionEmpleado;
 
 /**
  *

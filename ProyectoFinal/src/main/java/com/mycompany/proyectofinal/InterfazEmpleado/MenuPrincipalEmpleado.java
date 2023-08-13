@@ -1,5 +1,11 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazEmpleado;
 
+import com.mycompany.proyectofinal.Inicio;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelHorarioEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelUsuarioEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelInstructorEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelRutinaEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelClaseEmpleado;
 import java.awt.BorderLayout;
 
 /**

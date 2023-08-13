@@ -1,5 +1,7 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazCliente;
 
+import com.mycompany.proyectofinal.Funciones;
+import com.mycompany.proyectofinal.Inicio;
 import java.awt.Font;
 import java.awt.font.TextAttribute;
 import java.util.Map;

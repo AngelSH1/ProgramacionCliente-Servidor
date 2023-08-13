@@ -1,5 +1,11 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.InterfazCliente;
 
+import com.mycompany.proyectofinal.Inicio;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelClaseEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelHorarioEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelInstructorEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelRutinaEmpleado;
+import com.mycompany.proyectofinal.InterfazEmpleado.PanelUsuarioEmpleado;
 import java.awt.BorderLayout;
 
 /**
@@ -13,7 +19,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
      */
     public MenuPrincipalCliente() {
         initComponents();
-        PanelUsuarioEmpleado();
+        PanelUsuarioCliente();
     }
 
     //Método para que aparezca vacía la ventana de Inicio
@@ -22,7 +28,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         new Inicio().setVisible(true);
       }  
     //Método para que aparezca vacía la ventana Usuarios
-    public void PanelUsuarioEmpleado(){
+    public void PanelUsuarioCliente(){
         PanelUsuarioEmpleado pu = new PanelUsuarioEmpleado();
         pu.setSize(1000,450);
         pu.setLocation(0,0);
@@ -33,8 +39,8 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         PanelInterior.repaint();  
     }
     //Método para que aparezca vacía la ventana Horarios
-    public void PanelHorario(){
-        PanelHorarioEmpleado ph = new PanelHorarioEmpleado();
+    public void PanelHorarioCliente(){
+        PanelHorarioCliente ph = new PanelHorarioCliente();
         ph.setSize(1000,450);
         ph.setLocation(0,0);
         
@@ -44,8 +50,8 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         PanelInterior.repaint();  
     }
     //Método para que aparezca vacía la ventana Instructores
-    public void PanelInstructor(){
-        PanelInstructorEmpleado pi = new PanelInstructorEmpleado();
+    public void PanelInstructorCliente(){
+        PanelInstructorCliente pi = new PanelInstructorCliente();
         pi.setSize(1000,450);
         pi.setLocation(0,0);
         
@@ -55,8 +61,8 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         PanelInterior.repaint();  
     }
     //Método para que aparezca vacía la ventana Instructores
-    public void PanelRutina(){
-        PanelRutinaEmpleado pr = new PanelRutinaEmpleado();
+    public void PanelRutinaCliente(){
+        PanelRutinaCliente pr = new PanelRutinaCliente();
         pr.setSize(1000,450);
         pr.setLocation(0,0);
         
@@ -66,9 +72,9 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         PanelInterior.repaint();  
     }
     //Método para que aparezca vacía la ventana Clases
-    public void PanelClase(){
+    public void PanelClaseCliente(){
         //PanelClase pc = new PanelClaseEmpleado();
-        PanelClaseEmpleado pc = new PanelClaseEmpleado();
+        PanelClaseCliente pc = new PanelClaseCliente();
         pc.setSize(1000,450);
         pc.setLocation(0,0);
         
@@ -77,13 +83,16 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         PanelInterior.revalidate();
         PanelInterior.repaint();  
     }
-    
-    
-    
+    public void idUsuarioLog(){
+        Inicio i = new Inicio();
+        i.idUsuarioLog();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        idUsuario = new javax.swing.JLabel();
         PanelInterior = new javax.swing.JPanel();
         BotonSalir = new javax.swing.JButton();
         BotonClases = new javax.swing.JButton();
@@ -95,6 +104,9 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        idUsuario.setForeground(new java.awt.Color(255, 153, 0));
+        getContentPane().add(idUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         PanelInterior.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -177,7 +189,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         });
         getContentPane().add(BotonUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 190, 60));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo Menu.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Menu Clientes.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -185,7 +197,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
     private void BotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuariosActionPerformed
         // TODO add your handling code here:
-        PanelUsuarioEmpleado();
+        PanelUsuarioCliente();
         
     }//GEN-LAST:event_BotonUsuariosActionPerformed
 
@@ -197,22 +209,22 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
     private void BotonHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonHorariosActionPerformed
         // TODO add your handling code here:
-        PanelHorario();
+        PanelHorarioCliente();
     }//GEN-LAST:event_BotonHorariosActionPerformed
 
     private void BotonInstructoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInstructoresActionPerformed
         // TODO add your handling code here:
-        PanelInstructor();
+        PanelInstructorCliente();
     }//GEN-LAST:event_BotonInstructoresActionPerformed
 
     private void BotonRutinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRutinasActionPerformed
         // TODO add your handling code here:
-        PanelRutina();
+        PanelRutinaCliente();
     }//GEN-LAST:event_BotonRutinasActionPerformed
 
     private void BotonClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonClasesActionPerformed
         // TODO add your handling code here:
-        PanelClase();
+        PanelClaseCliente();
     }//GEN-LAST:event_BotonClasesActionPerformed
 
     /**
@@ -262,5 +274,6 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JButton BotonUsuarios;
     private javax.swing.JLabel Fondo;
     private javax.swing.JPanel PanelInterior;
+    private javax.swing.JLabel idUsuario;
     // End of variables declaration//GEN-END:variables
 }
