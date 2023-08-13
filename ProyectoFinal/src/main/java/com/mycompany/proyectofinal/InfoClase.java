@@ -645,7 +645,7 @@ public class InfoClase {
             ///abricmos conexion
             conexion.setConexion();
             //definimos la consulta
-            conexion.setConsulta("delete from tab_usuario where id_usuario = ?");
+            conexion.setConsulta("delete from tab_usuarios where id_usuario = ?");
             conexion.getConsulta().setInt(1, id);
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.println("Empleado Eliminado");

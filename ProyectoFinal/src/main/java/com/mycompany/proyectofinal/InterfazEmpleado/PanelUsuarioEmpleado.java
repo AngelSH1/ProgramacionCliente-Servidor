@@ -2,6 +2,8 @@ package com.mycompany.proyectofinal.InterfazEmpleado;
 
 import javax.swing.JOptionPane;
 import com.mycompany.proyectofinal.InfoClase;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,6 +16,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
      */
     public PanelUsuarioEmpleado() {
         initComponents();
+        llenarTabla();
 
     }
 
@@ -43,7 +46,7 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         }
     }
 
-    public void eliminarDatosRutina() {
+    public void eliminarDatos() {
         try {
             int filaSeleccionada = tablaEmpleado.getSelectedRow();
             if (filaSeleccionada != -1) {
@@ -52,13 +55,46 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
                         "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
                 if (opcion == JOptionPane.YES_OPTION) {
                     infoClase.eliminarEmpleado(id);
-                    //llenarTabla();
+                    llenarTabla();
                 } else {
                     JOptionPane.showMessageDialog(null, "Eliminación cancelada.");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void modificarDatos() {
+        try {
+            int id = Integer.parseInt(campoID.getText());
+            String usuario = campoNombre.getText();
+            String contraseña = campoContraseña.getText();
+            String rol = (String) campoRol.getSelectedItem();
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de actualizar estos datos?",
+                    "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                infoClase.modificarEmpleado(id, usuario, contraseña, rol);
+                llenarTabla();
+                //limpiar();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Actualización cancelada.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Formato de datos no valido");
+            e.printStackTrace();
+        }
+    }
+
+    public void llenarTabla() {
+        InfoClase f = new InfoClase();
+        try {
+            DefaultTableModel model = f.consultaEmpleados();
+            tablaEmpleado.setModel(model);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+
         }
     }
 
@@ -186,16 +222,20 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     private void BotonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistarUsuarioActionPerformed
         // TODO add your handling code here:
+        guardarDatos();
+
 
     }//GEN-LAST:event_BotonRegistarUsuarioActionPerformed
 
     private void BotonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarUsuarioActionPerformed
         // TODO add your handling code here:
+        eliminarDatos();
 
     }//GEN-LAST:event_BotonBorrarUsuarioActionPerformed
 
     private void BotonActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarUsuarioActionPerformed
         // TODO add your handling code here:
+        modificarDatos();
 
 
     }//GEN-LAST:event_BotonActualizarUsuarioActionPerformed
