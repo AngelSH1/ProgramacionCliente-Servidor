@@ -1,6 +1,7 @@
 package com.mycompany.proyectofinal.InterfazEmpleado;
 
-import com.mycompany.proyectofinal.FuncionEmpleado;
+import javax.swing.JOptionPane;
+import com.mycompany.proyectofinal.InfoClase;
 
 /**
  *
@@ -14,6 +15,51 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     public PanelUsuarioEmpleado() {
         initComponents();
 
+    }
+
+    InfoClase infoClase = new InfoClase();
+
+    public void guardarDatos() {
+        try {
+            String usuario = campoNombre.getText();
+            String contraseña = campoContraseña.getText();
+            String rol = (String) campoRol.getSelectedItem();
+
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de insertar estos datos?",
+                    "Confirmación de inserción", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                infoClase.insertarEmpleado(usuario, contraseña, rol);
+                JOptionPane.showMessageDialog(null, "Empleado agregado");
+                campoNombre.setText("");
+                campoContraseña.setText("");
+                campoRol.setSelectedItem("");
+                //llenarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Creación de empleado cancelada.");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Formato de datos no valido");
+            e.printStackTrace();
+        }
+    }
+
+    public void eliminarDatosRutina() {
+        try {
+            int filaSeleccionada = tablaEmpleado.getSelectedRow();
+            if (filaSeleccionada != -1) {
+                int id = (int) tablaEmpleado.getValueAt(filaSeleccionada, 0);
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de eliminar este empleado?",
+                        "Confirmación de eliminación", JOptionPane.YES_NO_OPTION);
+                if (opcion == JOptionPane.YES_OPTION) {
+                    infoClase.eliminarEmpleado(id);
+                    //llenarTabla();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Eliminación cancelada.");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -95,6 +141,12 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
             }
         });
         add(BotonRegistarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 380, 140, 50));
+
+        campoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNombreActionPerformed(evt);
+            }
+        });
         add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 320, 30));
         add(campoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 320, 30));
 
@@ -134,20 +186,17 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     private void BotonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistarUsuarioActionPerformed
         // TODO add your handling code here:
-        FuncionEmpleado funcion = new FuncionEmpleado();
-        funcion.guardarDatos(campoNombre, campoContraseña, campoVerContraseña, campoRol);
-        funcion.llenarTabla();
+
     }//GEN-LAST:event_BotonRegistarUsuarioActionPerformed
 
     private void BotonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarUsuarioActionPerformed
         // TODO add your handling code here:
-        FuncionEmpleado funcion = new FuncionEmpleado();
-        funcion.seleccionarEmpleado();
+
     }//GEN-LAST:event_BotonBorrarUsuarioActionPerformed
 
     private void BotonActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarUsuarioActionPerformed
         // TODO add your handling code here:
-        FuncionEmpleado funcion = new FuncionEmpleado();
+
 
     }//GEN-LAST:event_BotonActualizarUsuarioActionPerformed
 
@@ -162,6 +211,10 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     private void campoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoIDActionPerformed
+
+    private void campoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

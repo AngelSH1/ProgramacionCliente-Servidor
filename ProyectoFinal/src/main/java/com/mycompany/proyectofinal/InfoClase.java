@@ -121,9 +121,9 @@ public class InfoClase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }  
-    
-        public DefaultTableModel consultaParaRutinas() throws SQLException {
+    }
+
+    public DefaultTableModel consultaParaRutinas() throws SQLException {
         PreparedStatement consulta = null;
         ResultSet resultado = null;
         DefaultTableModel model = null;
@@ -140,11 +140,11 @@ public class InfoClase {
                 String nombreEjercicio = resultado.getString("nombre_ejercicio");
                 int series = resultado.getInt("series");
                 int repeticiones = resultado.getInt("repeticiones");
-                System.out.println("Id: " + id + 
-                        " Nombre de la rutina: \n" + nombreRutina + 
-                        " Nombre del ejercicio: \n" + nombreEjercicio + 
-                        " Series: \n" + series +
-                        " Repeticiones: " + repeticiones);
+                System.out.println("Id: " + id
+                        + " Nombre de la rutina: \n" + nombreRutina
+                        + " Nombre del ejercicio: \n" + nombreEjercicio
+                        + " Series: \n" + series
+                        + " Repeticiones: " + repeticiones);
             }
             //model = buildTableModel(resultado);
         } catch (SQLException error) {
@@ -168,7 +168,7 @@ public class InfoClase {
         }
         return model;
     }
-        
+
     public void modificarRutina(String grupoMuscular, String ejercicio, int series, int repeticiones, int id) {
         try {
             ///abricmos conexion
@@ -191,8 +191,8 @@ public class InfoClase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }    
-        
+    }
+
     public void eliminarRutina(int id) {
         try {
             ///abricmos conexion
@@ -209,10 +209,9 @@ public class InfoClase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }    
-    
-    
- //FIN METODOS RUTINAS  
+    }
+
+    //FIN METODOS RUTINAS  
     public void insertarClase(String Nombre, String descripcion, int cupo) {
         try {
             ///abricmos conexion
@@ -377,6 +376,7 @@ public class InfoClase {
 
         return nombresInstructores;
     }
+
     ////METODOS PARA TABLA INSTRUCTORES
     public DefaultTableModel consultaParaInstructores() throws SQLException {
         PreparedStatement consulta = null;
@@ -408,6 +408,7 @@ public class InfoClase {
         }
         return model;
     }
+
     public void insertarIntructor(String nombre, String apellido, String especialidad) {
         try {
             conexion.setConexion();
@@ -461,7 +462,7 @@ public class InfoClase {
             e.printStackTrace();
         }
     }
-    
+
     ///FIN METODOS TABLA INSTRUCTORES
     public ArrayList<String> cargarIdClases() {
         ArrayList<String> nombresInstructores = new ArrayList<>();
@@ -561,4 +562,101 @@ public class InfoClase {
         }
         return new DefaultTableModel(data, columnNames);
     }
+
+    //CODIGO PARA EL JFRAME PANELUSUARIOEMPLEADO
+    public void insertarEmpleado(String usuario, String contraseña, String rol) {
+        try {
+            ///abrimos conexion
+            conexion.setConexion();
+            //definimos la consulta
+            conexion.setConsulta("insert into tab_usuarios(contraseña,usuario,rol)"
+                    + "values(?,?,?)");
+            conexion.getConsulta().setString(1, contraseña);
+            conexion.getConsulta().setString(2, usuario);
+            conexion.getConsulta().setString(3, rol);
+
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Empleado Guardado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public DefaultTableModel consultaEmpleados() throws SQLException {
+        PreparedStatement consulta = null;
+        ResultSet resultado = null;
+        DefaultTableModel model = null;
+        Connection conectado = conexion.crearConexion();
+        try {
+            consulta = conectado.prepareStatement("select id_usuario,contraseña,usuario,rol from tab_usuarios");
+            ///extraer los datos de mysql y las guardamos en java
+            resultado = consulta.executeQuery();
+            ///recorrer las columnas de la consulta
+            model = buildTableModel(resultado);
+            while (resultado.next()) {
+                int id = resultado.getInt("id_rutina");
+                String usuario = resultado.getString("usuario");
+                String contraseña = resultado.getString("contraseña");
+                String rol = resultado.getString("rol");
+
+                System.out.println("Id: " + id
+                        + " Usuario: \n" + usuario
+                        + " Nombre del ejercicio: \n" + contraseña
+                        + " Series: \n" + rol);
+            }
+            //model = buildTableModel(resultado);
+            conexion.cerrarConexion();
+        } catch (SQLException error) {
+            error.printStackTrace();
+
+        }
+        return model;
+    }
+
+    public void modificarEmpleado(int id, String usuario, String contraseña, String rol) {
+        try {
+            ///abricmos conexion
+            conexion.setConexion();
+            //definimos la consulta
+            conexion.setConsulta("update tab_usuarios set contraseña = ?, usuario = ?, rol = ? where id_usuario = ?");
+            conexion.getConsulta().setInt(1, id);
+            conexion.getConsulta().setString(2, contraseña);
+            conexion.getConsulta().setString(3, usuario);
+            conexion.getConsulta().setString(4, rol);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(null, "Empleado modificado");
+                System.out.println("Registro Modificado");
+            } else {
+                System.out.println("Error en la operacion");
+                JOptionPane.showMessageDialog(null, "Para poder actualizar debes seleccionar la fila y clickear en Seleccionar.");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void eliminarEmpleado(int id) {
+        try {
+            ///abricmos conexion
+            conexion.setConexion();
+            //definimos la consulta
+            conexion.setConsulta("delete from tab_usuario where id_usuario = ?");
+            conexion.getConsulta().setInt(1, id);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Empleado Eliminado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    // FIN DE CODIGO PARA EL JFRAME PANELUSUARIOEMPLEADO
+
 }
