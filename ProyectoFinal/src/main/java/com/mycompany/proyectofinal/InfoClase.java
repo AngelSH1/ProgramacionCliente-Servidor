@@ -576,9 +576,9 @@ public class InfoClase {
             conexion.getConsulta().setString(3, rol);
 
             if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.println("Empleado Guardado");
+                JOptionPane.showMessageDialog(null, "Empleado Guardado");
             } else {
-                System.out.println("Error en la operacion");
+                JOptionPane.showMessageDialog(null, "Error en la operacion");
             }
             conexion.cerrarConexion();
         } catch (SQLException e) {
@@ -616,16 +616,12 @@ public class InfoClase {
         return model;
     }
 
-    public void modificarEmpleado(int id, String usuario, String contraseña, String rol) {
+    public void modificarEmpleado(int id, String usuario, String contraseña) {
         try {
-            ///abricmos conexion
             conexion.setConexion();
-            //definimos la consulta
-            conexion.setConsulta("update tab_usuarios set contraseña = ?, usuario = ?, rol = ? where id_usuario = ?");
-            conexion.getConsulta().setInt(1, id);
-            conexion.getConsulta().setString(2, contraseña);
-            conexion.getConsulta().setString(3, usuario);
-            conexion.getConsulta().setString(4, rol);
+            conexion.setConsulta("update tab_usuarios set contraseña = ?, usuario = ? where id_usuario = " + id);
+            conexion.getConsulta().setString(1, contraseña);
+            conexion.getConsulta().setString(2, usuario);
             if (conexion.getConsulta().executeUpdate() > 0) {
                 JOptionPane.showMessageDialog(null, "Empleado modificado");
                 System.out.println("Registro Modificado");
@@ -647,7 +643,7 @@ public class InfoClase {
             conexion.setConsulta("delete from tab_usuarios where id_usuario = ?");
             conexion.getConsulta().setInt(1, id);
             if (conexion.getConsulta().executeUpdate() > 0) {
-                System.out.println("Empleado Eliminado");
+                JOptionPane.showMessageDialog(null, "Empleado Eliminado");
             } else {
                 System.out.println("Error en la operacion");
             }

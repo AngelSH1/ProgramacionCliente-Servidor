@@ -33,11 +33,12 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
             if (opcion == JOptionPane.YES_OPTION) {
                 infoClase.insertarEmpleado(usuario, contraseña, rol);
                 JOptionPane.showMessageDialog(null, "Empleado agregado");
+                llenarTabla();
                 campoNombre.setText("");
                 campoContraseña.setText("");
                 campoVerContraseña.setText("");
                 campoRol.setSelectedItem("");
-                //llenarTabla();
+
             } else {
                 JOptionPane.showMessageDialog(null, "Creación de empleado cancelada.");
             }
@@ -68,18 +69,21 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     public void modificarDatos() {
         try {
-            int id = Integer.parseInt(campoID.getText());
-            String usuario = campoNombre.getText();
-            String contraseña = campoContraseña.getText();
-            String rol = (String) campoRol.getSelectedItem();
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de actualizar estos datos?",
-                    "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
-            if (opcion == JOptionPane.YES_OPTION) {
-                infoClase.modificarEmpleado(id, usuario, contraseña, rol);
-                llenarTabla();
+            int filaSeleccionada = tablaEmpleado.getSelectedRow();
+            if (filaSeleccionada != -1) {
+                int id = (int) tablaEmpleado.getValueAt(filaSeleccionada, 0);
+                String usuario = campoNombre.getText();
+                String contraseña = campoContraseña.getText();
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de actualizar estos datos?",
+                        "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
+                if (opcion == JOptionPane.YES_OPTION) {
+                    infoClase.modificarEmpleado(id, usuario, contraseña);
+                    llenarTabla();
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Actualización cancelada.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Actualización cancelada.");
+                }
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Formato de datos no valido");
