@@ -608,7 +608,6 @@ public class InfoClase {
                         + " Nombre del ejercicio: \n" + contraseña
                         + " Series: \n" + rol);
             }
-            //model = buildTableModel(resultado);
             conexion.cerrarConexion();
         } catch (SQLException error) {
             error.printStackTrace();
