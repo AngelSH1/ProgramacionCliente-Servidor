@@ -1,9 +1,9 @@
 package com.mycompany.proyectofinal.InterfazEmpleado;
 
-import javax.swing.JOptionPane;
 import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 
 /**
  *
@@ -22,30 +22,44 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     InfoClase infoClase = new InfoClase();
 
+    private boolean verificarCampos(JTextField campoNombre, JTextField campoContraseña, JTextField campoVerContraseña) {
+        if ((campoNombre.getText().isEmpty()) || (campoContraseña.getText().isEmpty()) || (campoVerContraseña.getText().isEmpty())) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+
     public void guardarDatos() {
         try {
             String usuario = campoNombre.getText();
             String contraseña = campoContraseña.getText();
+            String verificarCon = campoVerContraseña.getText();
             String rol = (String) campoRol.getSelectedItem();
-
-            int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de insertar estos datos?",
-                    "Confirmación de inserción", JOptionPane.YES_NO_OPTION);
-            if (opcion == JOptionPane.YES_OPTION) {
-                infoClase.insertarEmpleado(usuario, contraseña, rol);
-                JOptionPane.showMessageDialog(null, "Empleado agregado");
-                llenarTabla();
-                campoNombre.setText("");
-                campoContraseña.setText("");
-                campoVerContraseña.setText("");
-                campoRol.setSelectedItem("");
-
+            if (!verificarCampos(campoNombre, campoContraseña, campoVerContraseña) && contraseña.equals(verificarCon)) {
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de insertar estos datos?",
+                        "Confirmación de inserción", JOptionPane.YES_NO_OPTION);
+                if (opcion == JOptionPane.YES_OPTION) {
+                    infoClase.insertarEmpleado(usuario, contraseña, rol);
+                    JOptionPane.showMessageDialog(null, "Empleado agregado");
+                    llenarTabla();
+                    campoNombre.setText("");
+                    campoContraseña.setText("");
+                    campoVerContraseña.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Creación de empleado cancelada.");
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Creación de empleado cancelada.");
+                JOptionPane.showMessageDialog(null, "Algunos campos no fueron rellenados correctamente");
             }
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Formato de datos no valido");
+            JOptionPane.showMessageDialog(null, "Formato de datos no valida");
             e.printStackTrace();
         }
+
     }
 
     public void eliminarDatos() {
@@ -74,16 +88,24 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
                 int id = (int) tablaEmpleado.getValueAt(filaSeleccionada, 0);
                 String usuario = campoNombre.getText();
                 String contraseña = campoContraseña.getText();
-                int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de actualizar estos datos?",
-                        "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
-                if (opcion == JOptionPane.YES_OPTION) {
-                    infoClase.modificarEmpleado(id, usuario, contraseña);
-                    llenarTabla();
+                String verificarCon = campoVerContraseña.getText();
+                if (!verificarCampos(campoNombre, campoContraseña, campoVerContraseña) && contraseña.equals(verificarCon)) {
+                    int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de actualizar estos datos?",
+                            "Confirmación de actualización", JOptionPane.YES_NO_OPTION);
+                    if (opcion == JOptionPane.YES_OPTION) {
+                        infoClase.modificarEmpleado(id, usuario, contraseña);
+                        llenarTabla();
+                        campoNombre.setText("");
+                        campoContraseña.setText("");
+                        campoVerContraseña.setText("");
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Actualización cancelada.");
+                    }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Actualización cancelada.");
+                    JOptionPane.showMessageDialog(null, "Alguno de los campos no fue rellenado correctamente");
                 }
-
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Formato de datos no valido");
