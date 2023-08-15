@@ -134,18 +134,15 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     private void initComponents() {
 
         campoRol = new javax.swing.JComboBox<>();
-        BotonBuscarUsuario = new javax.swing.JButton();
         BotonActualizarUsuario = new javax.swing.JButton();
         BotonBorrarUsuario = new javax.swing.JButton();
         BotonRegistarUsuario = new javax.swing.JButton();
         campoNombre = new javax.swing.JTextField();
         campoContraseña = new javax.swing.JTextField();
-        campoID = new javax.swing.JTextField();
         campoVerContraseña = new javax.swing.JTextField();
         FondoRegistroUsuarios = new javax.swing.JLabel();
         TablaUsuarios = new javax.swing.JScrollPane();
         tablaEmpleado = new javax.swing.JTable();
-        Codigo = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(990, 460));
@@ -159,17 +156,6 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
             }
         });
         add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
-
-        BotonBuscarUsuario.setBackground(new java.awt.Color(246, 104, 68));
-        BotonBuscarUsuario.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
-        BotonBuscarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        BotonBuscarUsuario.setText("Buscar");
-        BotonBuscarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonBuscarUsuarioActionPerformed(evt);
-            }
-        });
-        add(BotonBuscarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 90, 20));
 
         BotonActualizarUsuario.setBackground(new java.awt.Color(246, 104, 68));
         BotonActualizarUsuario.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
@@ -211,13 +197,6 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         });
         add(campoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, 320, 30));
         add(campoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 320, 30));
-
-        campoID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoIDActionPerformed(evt);
-            }
-        });
-        add(campoID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 70, 20));
         add(campoVerContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 320, 30));
 
         FondoRegistroUsuarios.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,12 +214,14 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaEmpleadoMouseClicked(evt);
+            }
+        });
         TablaUsuarios.setViewportView(tablaEmpleado);
 
         add(TablaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 360));
-
-        Codigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Código.png"))); // NOI18N
-        add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
@@ -266,34 +247,31 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
     }//GEN-LAST:event_BotonActualizarUsuarioActionPerformed
 
-    private void BotonBuscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonBuscarUsuarioActionPerformed
-
     private void campoRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoRolActionPerformed
-
-    private void campoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoIDActionPerformed
 
     private void campoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNombreActionPerformed
 
+    private void tablaEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEmpleadoMouseClicked
+        // TODO add your handling code here:
+        int fila = tablaEmpleado.rowAtPoint(evt.getPoint());
+        campoNombre.setText(tablaEmpleado.getValueAt(fila, 2).toString());
+        campoContraseña.setText(tablaEmpleado.getValueAt(fila, 1).toString());
+        campoVerContraseña.setText(tablaEmpleado.getValueAt(fila, 1).toString());
+    }//GEN-LAST:event_tablaEmpleadoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonActualizarUsuario;
     private javax.swing.JButton BotonBorrarUsuario;
-    private javax.swing.JButton BotonBuscarUsuario;
     private javax.swing.JButton BotonRegistarUsuario;
-    private javax.swing.JLabel Codigo;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoRegistroUsuarios;
     private javax.swing.JScrollPane TablaUsuarios;
     private javax.swing.JTextField campoContraseña;
-    private javax.swing.JTextField campoID;
     private javax.swing.JTextField campoNombre;
     private javax.swing.JComboBox<String> campoRol;
     private javax.swing.JTextField campoVerContraseña;

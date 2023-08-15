@@ -66,7 +66,7 @@ public class PanelInstructorEmpleado extends javax.swing.JPanel {
         add(rbAcutalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, -1, -1));
 
         Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Actualizar.png"))); // NOI18N
-        add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, 70, -1));
+        add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 70, -1));
 
         rbNuevaInstructor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
