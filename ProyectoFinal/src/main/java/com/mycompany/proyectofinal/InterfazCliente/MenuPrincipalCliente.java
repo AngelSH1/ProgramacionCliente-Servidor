@@ -29,7 +29,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
       }  
     //Método para que aparezca vacía la ventana Usuarios
     public void PanelUsuarioCliente(){
-        PanelUsuarioEmpleado pu = new PanelUsuarioEmpleado();
+        PanelUsuarioCliente pu = new PanelUsuarioCliente();
         pu.setSize(1000,450);
         pu.setLocation(0,0);
         

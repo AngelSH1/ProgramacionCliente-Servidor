@@ -2,6 +2,7 @@ package com.mycompany.proyectofinal.InterfazCliente;
 
 import com.mycompany.proyectofinal.InfoClase;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -81,6 +82,11 @@ public class PanelHorarioCliente extends javax.swing.JPanel {
         botonInscribirse.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
         botonInscribirse.setForeground(new java.awt.Color(255, 255, 255));
         botonInscribirse.setText("Inscribirse");
+        botonInscribirse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInscribirseActionPerformed(evt);
+            }
+        });
         jPanel1.add(botonInscribirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 210, 50));
 
         FondoHorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Horario Cliente.png"))); // NOI18N
@@ -111,6 +117,11 @@ public class PanelHorarioCliente extends javax.swing.JPanel {
         campoClase.setText(tablaHorarioCliente.getValueAt(fila, 1).toString());
     }//GEN-LAST:event_tablaHorarioClienteMouseClicked
 
+    private void botonInscribirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInscribirseActionPerformed
+        // TODO add your handling code here:
+        insertarMatricula();
+    }//GEN-LAST:event_botonInscribirseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
@@ -126,7 +137,7 @@ public class PanelHorarioCliente extends javax.swing.JPanel {
     private javax.swing.JTable tablaHorarioCliente;
     // End of variables declaration//GEN-END:variables
 InfoClase infoclase = new InfoClase();
-
+    int id_de_prueba = 3;
 //LLENAR TABLA  
     public void llenarTabla() {
         InfoClase f = new InfoClase();
@@ -148,6 +159,25 @@ InfoClase infoclase = new InfoClase();
         campoHoraFin.setEnabled(false);
         campoInstructor.setEnabled(false);
         campoClase.setEnabled(false);
+    }
+    public void insertarMatricula(){
+        int filaSeleccionada = tablaHorarioCliente.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            // Obtener los valores de la fila seleccionada
+            int idHorario = (int) tablaHorarioCliente.getValueAt(filaSeleccionada, 0);
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de Matricular esta Clase?",
+                "Confirmación de Matricula", JOptionPane.YES_NO_OPTION);
+
+            if (opcion == JOptionPane.YES_OPTION) {
+                infoclase.insertarMatricula(id_de_prueba, idHorario);
+                llenarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Matricula Realizada.");
+            }
+        } else {
+            // Si no hay fila seleccionada, muestra un mensaje de error
+            JOptionPane.showMessageDialog(null, "Selecciona una fila Para Matricular.");
+        }    
     }
     
 }
