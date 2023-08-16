@@ -503,6 +503,81 @@ public class InfoClase {
 
         return nombresInstructores;
     }
+///////METODOS TABLA MATRICULA CLIENTE
+    public DefaultTableModel consultaParaMatricula(int id) throws SQLException {
+        PreparedStatement consulta = null;
+        ResultSet resultado = null;
+        DefaultTableModel model = null;
+        Connection conectado = conexion.crearConexion();
+
+        try {
+            consulta = conectado.prepareStatement("SELECT US.USUARIO, TC.NOMBRE_CLASE, TH.FECHA, TH.HORA_INICIO, TH.HORA_FINALIZACION, TI.NOMBRE AS NOMBRE_INSTRUCTOR\n"
+                    + "FROM TAB_MATRICULA MT "
+                    + "JOIN TAB_HORARIOS TH ON TH.ID_HORARIO = MT.ID_HORARIO_MATRICULADO "
+                    + "JOIN TAB_INSTRUCTORES TI ON TH.ID_INSTRUCTOR = TI.ID_INSTRUCTOR "
+                    + "JOIN TAB_CLASES TC ON TH.ID_CLASE = TC.ID_CLASE "
+                    + "JOIN TAB_USUARIOS US ON MT.ID_USUARIO = US.ID_USUARIO "
+                    + "WHERE MT.ID_USUARIO = ?;");
+
+            consulta.setInt(1, id);  // Set the parameter value
+
+            resultado = consulta.executeQuery();
+
+            // Populate data into DefaultTableModel
+            String[] columnNames = {"Usuario", "Nombre Clase", "Fecha", "Hora Inicio", "Hora Finalización", "Nombre Instructor"};
+            model = new DefaultTableModel(columnNames, 0);
+
+            while (resultado.next()) {
+                String usuario = resultado.getString("USUARIO");
+                String nombreClase = resultado.getString("NOMBRE_CLASE");
+                String fecha = resultado.getString("FECHA");
+                String horaInicio = resultado.getString("HORA_INICIO");
+                String horaFinalizacion = resultado.getString("HORA_FINALIZACION");
+                String nombreInstructor = resultado.getString("NOMBRE_INSTRUCTOR");
+
+                Object[] rowData = {usuario, nombreClase, fecha, horaInicio, horaFinalizacion, nombreInstructor};
+                model.addRow(rowData);
+            }
+        } catch (SQLException error) {
+            error.printStackTrace();
+        } finally {
+            if (resultado != null) {
+                try {
+                    resultado.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+
+            if (consulta != null) {
+                try {
+                    consulta.close();
+                } catch (SQLException error) {
+                    error.printStackTrace();
+                }
+            }
+        }
+
+        return model;
+    }
+
+    public void insertarMatricula(int id_usuario, int id_horario) {
+        try {
+            conexion.setConexion();
+            conexion.setConsulta("insert into tab_matricula(ID_USUARIO, ID_HORARIO_MATRICULADO)"
+                    + "values(?,?)");
+            conexion.getConsulta().setInt(1, id_usuario);
+            conexion.getConsulta().setInt(2, id_horario);
+            if (conexion.getConsulta().executeUpdate() > 0) {
+                System.out.println("Registro Guardado");
+            } else {
+                System.out.println("Error en la operacion");
+            }
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public DefaultTableModel consultarTodosPrint() throws SQLException {
         PreparedStatement consulta = null;
