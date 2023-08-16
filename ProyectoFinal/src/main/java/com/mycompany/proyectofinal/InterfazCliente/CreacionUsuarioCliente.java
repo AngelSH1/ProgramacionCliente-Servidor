@@ -38,7 +38,7 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Ingresar = new javax.swing.JLabel();
-        textoConstCliente = new javax.swing.JComboBox<>();
+        campoRol = new javax.swing.JComboBox<>();
         textoNombre = new javax.swing.JTextField();
         textoContraseña = new javax.swing.JTextField();
         textoVerificacionContraseña = new javax.swing.JTextField();
@@ -78,8 +78,8 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
         });
         jPanel1.add(Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 170, 70));
 
-        textoConstCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente" }));
-        jPanel1.add(textoConstCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+        campoRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Empleado" }));
+        jPanel1.add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         textoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,11 +248,11 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
     private javax.swing.JLabel CuerpoCrearCuenta;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Ingresar;
+    private javax.swing.JComboBox<String> campoRol;
     private javax.swing.JComboBox<String> datoCliente;
     private javax.swing.JButton enviarNuevoUsuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> textoCliente;
-    private javax.swing.JComboBox<String> textoConstCliente;
     private javax.swing.JTextField textoContraseña;
     private javax.swing.JTextField textoNombre;
     private javax.swing.JTextField textoVerificacionContraseña;

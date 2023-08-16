@@ -68,11 +68,12 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="textoConstCliente">
+        <Component class="javax.swing.JComboBox" name="campoRol">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="1">
+              <StringArray count="2">
                 <StringItem index="0" value="Cliente"/>
+                <StringItem index="1" value="Empleado"/>
               </StringArray>
             </Property>
           </Properties>
@@ -81,7 +82,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="480" width="-1" height="-1"/>
+              <AbsoluteConstraints x="280" y="290" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

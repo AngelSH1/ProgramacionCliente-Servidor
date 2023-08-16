@@ -1,5 +1,6 @@
 package com.mycompany.proyectofinal;
 
+import com.mycompany.proyectofinal.InterfazCliente.MenuPrincipalCliente;
 import com.mycompany.proyectofinal.InterfazEmpleado.MenuPrincipalEmpleado;
 import java.sql.*;
 import javax.swing.*;
@@ -14,11 +15,12 @@ public class Funciones {
     ResultSet resultado = null;
     private static String usuario;
     private static String contraseña;
+    private static String rol;
     private static JTextField textField1;
     private static JTextField textField2;
     private static JTextField textField3;
     private static String perfil;
-    private static JComboBox campoCliente;
+    private static JComboBox campoRol;
 
     private boolean campos(JTextField textField1, JTextField textField2, JTextField textField3) {
 
@@ -44,18 +46,22 @@ public class Funciones {
 
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
         try {
-            usuario = textField1.getText();
-            contraseña = textField2.getText();
             if (campos2(textField1, textField2)) {
-                JOptionPane.showMessageDialog(null, "Campos en Blanco");
+                JOptionPane.showMessageDialog(null, "Campos en blanco");
                 throw new Exception();
             } else {
                 if (existeUsuario(textField1)) {
-                    MenuPrincipalEmpleado ventanaMenuPrincipal = new MenuPrincipalEmpleado();
-                    ventanaMenuPrincipal.setVisible(true);
+                    if (existeCliente(textField1)) {
+                        MenuPrincipalCliente ventanaCliente = new MenuPrincipalCliente();
+                        ventanaCliente.setVisible(true);
+                    } else {
+                        MenuPrincipalEmpleado ventanaEmpleado = new MenuPrincipalEmpleado();
+                        ventanaEmpleado.setVisible(true);
+
+                    }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "El Usuario No Existe");
+                    JOptionPane.showMessageDialog(null, "El usuario no existe");
                     throw new Exception();
 
                 }
@@ -69,17 +75,17 @@ public class Funciones {
 
     }
 
-    public void guardarDatos(JTextField textField1, JTextField textField2, JTextField textField3, JComboBox campoCliente) {
+    public void guardarDatos(JTextField textField1, JTextField textField2, JTextField textField3, JComboBox campoRol) {
         try {
             usuario = textField1.getText();
             contraseña = textField2.getText();
-            //rol = campoCliente.getText();
+            rol = (String) campoRol.getSelectedItem();
 
             if (campos(textField1, textField2, textField3)) {
                 throw new Exception();
             } else {
                 if (textField2.getText().equals(textField3.getText())) {
-                    crearUsuario(usuario, contraseña);
+                    crearUsuario(usuario, contraseña, rol);
                 } else {
                     throw new Exception();
                 }
@@ -93,13 +99,13 @@ public class Funciones {
 
     }
 
-    private void crearUsuario(String usuario, String contraseña) {
+    private void crearUsuario(String usuario, String contraseña, String rol) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("INSERT INTO tab_usuarios (usuario, contraseña) VALUES (?,?)");
-            conexion.getConsulta().setString(1, usuario);
-            conexion.getConsulta().setString(2, contraseña);
-
+            conexion.setConsulta("INSERT INTO tab_usuarios (contraseña, usuario, rol) VALUES (?,?,?)");
+            conexion.getConsulta().setString(1, contraseña);
+            conexion.getConsulta().setString(2, usuario);
+            conexion.getConsulta().setString(3, rol);
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.println("Cliente guardado!");
             } else {
@@ -132,4 +138,30 @@ public class Funciones {
         return false;
     }
 
+    private boolean existeCliente(JTextField textField1) {
+        boolean esCliente = false;
+        try {
+
+            conexion.setConexion();
+            //Definimos la consulta
+            conexion.setConsulta("Select rol from tab_usuarios where usuario = ?");
+            conexion.getConsulta().setString(1, textField1.getText());
+            resultado = conexion.getResultado();
+
+            while (resultado.next()) {
+                String rol = resultado.getString("rol");
+                if (rol.equals("Cliente")) {
+                    esCliente = true;
+
+                }
+
+            }
+
+            conexion.cerrarConexion();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return esCliente;
+
+    }
 }
