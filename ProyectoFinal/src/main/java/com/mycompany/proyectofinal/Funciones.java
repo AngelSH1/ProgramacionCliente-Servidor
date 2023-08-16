@@ -51,7 +51,7 @@ public class Funciones {
                 throw new Exception();
             } else {
                 if (existeUsuario(textField1)) {
-                    if (existeCliente(textField1)) {
+                    if (existeCliente(textField1, textField2)) {
                         MenuPrincipalCliente ventanaCliente = new MenuPrincipalCliente();
                         ventanaCliente.setVisible(true);
                     } else {
@@ -138,14 +138,15 @@ public class Funciones {
         return false;
     }
 
-    private boolean existeCliente(JTextField textField1) {
+    private boolean existeCliente(JTextField textField1, JTextField textField2) {
         boolean esCliente = false;
         try {
 
             conexion.setConexion();
             //Definimos la consulta
-            conexion.setConsulta("Select rol from tab_usuarios where usuario = ?");
+            conexion.setConsulta("Select rol from tab_usuarios where usuario = ? and contraseña = ?");
             conexion.getConsulta().setString(1, textField1.getText());
+            conexion.getConsulta().setString(2, textField2.getText());
             resultado = conexion.getResultado();
 
             while (resultado.next()) {
