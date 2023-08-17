@@ -43,7 +43,16 @@ public class Funciones {
         }
 
     }
+    String nombreUsuario;
 
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+    
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
         try {
             if (campos2(textField1, textField2)) {
@@ -52,8 +61,11 @@ public class Funciones {
             } else {
                 if (existeUsuario(textField1)) {
                     if (existeCliente(textField1, textField2)) {
-                        MenuPrincipalCliente ventanaCliente = new MenuPrincipalCliente();
+                        MenuPrincipalCliente ventanaCliente = new MenuPrincipalCliente(textField1.getText());
                         ventanaCliente.setVisible(true);
+                        
+                        //ventanaCliente.setNombreUsuario(textField1.getText());
+                        //ventanaCliente.prueba(textField1.getText());
                     } else {
                         MenuPrincipalEmpleado ventanaEmpleado = new MenuPrincipalEmpleado();
                         ventanaEmpleado.setVisible(true);

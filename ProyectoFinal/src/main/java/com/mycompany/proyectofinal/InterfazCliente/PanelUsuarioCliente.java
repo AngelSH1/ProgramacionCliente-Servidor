@@ -13,13 +13,14 @@ import javax.swing.table.DefaultTableModel;
  * @author shang
  */
 public class PanelUsuarioCliente extends javax.swing.JPanel {
-
+    static String nombreUsuario;
     /**
      * Creates new form PanelUsuarioCliente
      */
-    public PanelUsuarioCliente() {
+    public PanelUsuarioCliente(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
         initComponents();
-        llenarTabla();
+        llenarTabla(this.nombreUsuario);
     }
 
     /**
@@ -104,11 +105,11 @@ public class PanelUsuarioCliente extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 InfoClase infoclase = new InfoClase();
 
-    public void llenarTabla() {
+    public void llenarTabla(String i) {
         InfoClase f = new InfoClase();
         try {
             // Llamar a la función consultarTodos() de FuncionesEstudiante
-            DefaultTableModel model = f.consultaParaMatricula(3);
+            DefaultTableModel model = f.consultaParaMatricula(i);
 
             // Actualizar la tabla con los datos obtenidos de la consulta
             tablaUsuario.setModel(model);
