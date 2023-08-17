@@ -39,17 +39,17 @@ public class PanelClaseCliente extends javax.swing.JPanel {
         TablaInstructores = new javax.swing.JScrollPane();
         tablaClaseCliente = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        btnSeleccionar = new javax.swing.JButton();
         txtoNombreClase = new javax.swing.JLabel();
         txtNombreClase = new javax.swing.JTextField();
         txtDesc = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
         txtCupoMax = new javax.swing.JLabel();
         txtCupoMaximo = new javax.swing.JTextField();
-        btnRegistrar = new javax.swing.JButton();
         FondoPeq = new javax.swing.JLabel();
         lbid = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
+        btnSeleccionar = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -96,15 +96,6 @@ public class PanelClaseCliente extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSeleccionar.setBackground(new java.awt.Color(255, 153, 51));
-        btnSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Seleccionar.png"))); // NOI18N
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 120, 40));
-
         txtoNombreClase.setFont(new java.awt.Font("Gill Sans MT", 1, 14)); // NOI18N
         txtoNombreClase.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Nombre Clase.png"))); // NOI18N
         jPanel1.add(txtoNombreClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
@@ -120,6 +111,24 @@ public class PanelClaseCliente extends javax.swing.JPanel {
         jPanel1.add(txtCupoMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
         jPanel1.add(txtCupoMaximo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 290, 30));
 
+        FondoPeq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
+        jPanel1.add(FondoPeq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 400));
+        jPanel1.add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 40, 50));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, 380));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
+        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
+
+        btnSeleccionar.setBackground(new java.awt.Color(255, 153, 51));
+        btnSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Boton Seleccionar.png"))); // NOI18N
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
+        add(btnSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 120, 40));
+
         btnRegistrar.setBackground(new java.awt.Color(246, 104, 68));
         btnRegistrar.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,17 +138,28 @@ public class PanelClaseCliente extends javax.swing.JPanel {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 140, 40));
-
-        FondoPeq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
-        jPanel1.add(FondoPeq, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 400));
-        jPanel1.add(lbid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 40, 50));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, 380));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
-        add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
+        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tablaClaseClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClaseClienteMouseClicked
+        // TODO add your handling code here:
+        int fila = tablaClaseCliente.rowAtPoint(evt.getPoint());
+        txtNombreClase.setText(tablaClaseCliente.getValueAt(fila, 1).toString());
+        txtDescripcion.setText(tablaClaseCliente.getValueAt(fila, 2).toString());
+        txtCupoMaximo.setText(tablaClaseCliente.getValueAt(fila, 3).toString());
+    }//GEN-LAST:event_tablaClaseClienteMouseClicked
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        try {
+            if (btnSeleccionar.isSelected()) {
+                insertaDatos();
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Selecionar una Accion");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
@@ -159,26 +179,6 @@ public class PanelClaseCliente extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Selecciona una fila Para Acutalizar.");
         }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-    try {
-            if (btnSeleccionar.isSelected()) {
-                insertaDatos();
-            } else {
-                JOptionPane.showMessageDialog(null, "Debe Selecionar una Accion");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void tablaClaseClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaClaseClienteMouseClicked
-        // TODO add your handling code here:
-        int fila = tablaClaseCliente.rowAtPoint(evt.getPoint());
-        txtNombreClase.setText(tablaClaseCliente.getValueAt(fila, 1).toString());
-        txtDescripcion.setText(tablaClaseCliente.getValueAt(fila, 2).toString());
-        txtCupoMaximo.setText(tablaClaseCliente.getValueAt(fila, 3).toString());
-    }//GEN-LAST:event_tablaClaseClienteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
