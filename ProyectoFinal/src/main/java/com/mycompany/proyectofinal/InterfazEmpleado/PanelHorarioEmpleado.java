@@ -11,7 +11,7 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author shang
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class PanelHorarioEmpleado extends javax.swing.JPanel {
 

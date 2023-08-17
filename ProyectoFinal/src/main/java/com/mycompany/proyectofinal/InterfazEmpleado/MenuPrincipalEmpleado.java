@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 
 /**
  *
- * @author Dabney Arosemena Alpízar
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class MenuPrincipalEmpleado extends javax.swing.JFrame {
 

@@ -7,7 +7,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Daniel
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class Funciones {
 

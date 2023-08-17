@@ -10,7 +10,7 @@ import java.awt.BorderLayout;
 
 /**
  *
- * @author Dabney Arosemena Alpízar
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class MenuPrincipalCliente extends javax.swing.JFrame {
     static String nombreUsuario;
@@ -129,6 +129,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
         getContentPane().add(PanelInterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 980, 430));
 
+        lbNombreUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lbNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(lbNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 

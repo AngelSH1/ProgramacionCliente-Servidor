@@ -9,7 +9,7 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author Dabney Arosemena Alpízar
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class PanelInstructorCliente extends javax.swing.JPanel {
 

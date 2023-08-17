@@ -7,7 +7,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Dabney Arosemena Alpízar
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 

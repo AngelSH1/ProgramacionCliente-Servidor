@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.proyectofinal.InterfazCliente;
 
 import com.mycompany.proyectofinal.InterfazEmpleado.*;
@@ -14,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author shang
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
  */
 public class PanelClaseCliente extends javax.swing.JPanel {
 
