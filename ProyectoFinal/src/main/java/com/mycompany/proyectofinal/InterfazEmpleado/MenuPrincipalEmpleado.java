@@ -269,4 +269,4 @@ public class MenuPrincipalEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel Fondo;
     private javax.swing.JPanel PanelInterior;
     // End of variables declaration//GEN-END:variables
-}
+    }

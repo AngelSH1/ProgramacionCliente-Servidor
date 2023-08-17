@@ -10,14 +10,16 @@ import javax.swing.table.DefaultTableModel;
  * @author mende
  */
 public class PanelHorarioCliente extends javax.swing.JPanel {
-
+    static String nombreUsuario;
     /**
      * Creates new form PanelHorarioC
      */
-    public PanelHorarioCliente() {
+    public PanelHorarioCliente(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
         initComponents();
         llenarTabla();
         desabilitados();
+        
     }
 
     /**
@@ -169,7 +171,9 @@ InfoClase infoclase = new InfoClase();
                 "Confirmación de Matricula", JOptionPane.YES_NO_OPTION);
 
             if (opcion == JOptionPane.YES_OPTION) {
-                infoclase.insertarMatricula(id_de_prueba, idHorario);
+                System.out.println(nombreUsuario+"sssssssssssss");
+                infoclase.insertarMatricula(nombreUsuario, idHorario);
+                
                 llenarTabla();
             } else {
                 JOptionPane.showMessageDialog(null, "Matricula Realizada.");

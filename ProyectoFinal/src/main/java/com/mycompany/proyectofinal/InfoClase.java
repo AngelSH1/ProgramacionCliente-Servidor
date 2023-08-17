@@ -504,7 +504,8 @@ public class InfoClase {
         return nombresInstructores;
     }
 ///////METODOS TABLA MATRICULA CLIENTE
-    public DefaultTableModel consultaParaMatricula(int id) throws SQLException {
+
+    public DefaultTableModel consultaParaMatricula(String id) throws SQLException {
         PreparedStatement consulta = null;
         ResultSet resultado = null;
         DefaultTableModel model = null;
@@ -517,9 +518,8 @@ public class InfoClase {
                     + "JOIN TAB_INSTRUCTORES TI ON TH.ID_INSTRUCTOR = TI.ID_INSTRUCTOR "
                     + "JOIN TAB_CLASES TC ON TH.ID_CLASE = TC.ID_CLASE "
                     + "JOIN TAB_USUARIOS US ON MT.ID_USUARIO = US.ID_USUARIO "
-                    + "WHERE MT.ID_USUARIO = ?;");
-
-            consulta.setInt(1, id);  // Set the parameter value
+                    + "WHERE US.USUARIO = ?;");
+            consulta.setString(1, id);  // Set the parameter value
 
             resultado = consulta.executeQuery();
 
@@ -560,13 +560,39 @@ public class InfoClase {
 
         return model;
     }
+    int id_usuario;
 
-    public void insertarMatricula(int id_usuario, int id_horario) {
+    public int encontrarId(String nombreUsuario) {
+        int id_usuario = -1; // Valor por defecto en caso de no encontrar un ID
+
         try {
+            Connection conectado = conexion.crearConexion();
+            PreparedStatement stmt = conectado.prepareStatement("SELECT ID_USUARIO FROM tab_USUARIOS WHERE USUARIO = ?");
+            stmt.setString(1, nombreUsuario);
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                id_usuario = rs.getInt("ID_USUARIO");
+            }
+
+            rs.close();
+            stmt.close();
+            conectado.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(id_usuario);
+        return id_usuario;
+    }
+
+    public void insertarMatricula(String nombreUsuario, int id_horario) {
+        try {
+            int i=encontrarId(nombreUsuario);
             conexion.setConexion();
             conexion.setConsulta("insert into tab_matricula(ID_USUARIO, ID_HORARIO_MATRICULADO)"
                     + "values(?,?)");
-            conexion.getConsulta().setInt(1, id_usuario);
+            conexion.getConsulta().setInt(1, i);
             conexion.getConsulta().setInt(2, id_horario);
             if (conexion.getConsulta().executeUpdate() > 0) {
                 System.out.println("Registro Guardado");

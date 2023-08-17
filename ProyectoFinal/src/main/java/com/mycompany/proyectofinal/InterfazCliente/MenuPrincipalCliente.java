@@ -13,14 +13,19 @@ import java.awt.BorderLayout;
  * @author Dabney Arosemena Alpízar
  */
 public class MenuPrincipalCliente extends javax.swing.JFrame {
-
+    static String nombreUsuario;
+    
     /**
      * Creates new form ModuloRutinas
+     * @param nombreUsuario
      */
-    public MenuPrincipalCliente() {
+    public MenuPrincipalCliente(String nombreUsuario) {
         initComponents();
+        prueba(nombreUsuario);        
         PanelUsuarioCliente();
+        
     }
+
 
     //Método para que aparezca vacía la ventana de Inicio
     public void Inicio(){
@@ -29,7 +34,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
       }  
     //Método para que aparezca vacía la ventana Usuarios
     public void PanelUsuarioCliente(){
-        PanelUsuarioCliente pu = new PanelUsuarioCliente();
+        PanelUsuarioCliente pu = new PanelUsuarioCliente(lbNombreUsuario.getText());
         pu.setSize(1000,450);
         pu.setLocation(0,0);
         
@@ -40,7 +45,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     }
     //Método para que aparezca vacía la ventana Horarios
     public void PanelHorarioCliente(){
-        PanelHorarioCliente ph = new PanelHorarioCliente();
+        PanelHorarioCliente ph = new PanelHorarioCliente(lbNombreUsuario.getText());
         ph.setSize(1000,450);
         ph.setLocation(0,0);
         
@@ -94,6 +99,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
         idUsuario = new javax.swing.JLabel();
         PanelInterior = new javax.swing.JPanel();
+        lbNombreUsuario = new javax.swing.JLabel();
         BotonSalir = new javax.swing.JButton();
         BotonClases = new javax.swing.JButton();
         BotonRutinas = new javax.swing.JButton();
@@ -122,6 +128,9 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         );
 
         getContentPane().add(PanelInterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 980, 430));
+
+        lbNombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lbNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
         BotonSalir.setBackground(new java.awt.Color(246, 104, 68));
         BotonSalir.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
@@ -260,7 +269,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipalCliente().setVisible(true);
+                new MenuPrincipalCliente(nombreUsuario).setVisible(true);
             }
         });
     }
@@ -275,5 +284,13 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JLabel Fondo;
     private javax.swing.JPanel PanelInterior;
     private javax.swing.JLabel idUsuario;
+    private javax.swing.JLabel lbNombreUsuario;
     // End of variables declaration//GEN-END:variables
+
+
+    public void prueba(String i){
+        lbNombreUsuario.setText(i);
+        
+        System.out.println(i);
+    }
 }
