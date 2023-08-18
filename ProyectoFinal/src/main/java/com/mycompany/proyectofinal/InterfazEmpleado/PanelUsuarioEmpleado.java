@@ -133,7 +133,6 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        campoRol = new javax.swing.JComboBox<>();
         BotonActualizarUsuario = new javax.swing.JButton();
         BotonBorrarUsuario = new javax.swing.JButton();
         BotonRegistarUsuario = new javax.swing.JButton();
@@ -144,18 +143,11 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
         TablaUsuarios = new javax.swing.JScrollPane();
         tablaEmpleado = new javax.swing.JTable();
         Fondo = new javax.swing.JLabel();
+        campoRol = new javax.swing.JComboBox<>();
 
         setMinimumSize(new java.awt.Dimension(990, 460));
         setPreferredSize(new java.awt.Dimension(990, 460));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        campoRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado" }));
-        campoRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoRolActionPerformed(evt);
-            }
-        });
-        add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
         BotonActualizarUsuario.setBackground(new java.awt.Color(246, 104, 68));
         BotonActualizarUsuario.setFont(new java.awt.Font("Eras Demi ITC", 0, 18)); // NOI18N
@@ -225,6 +217,14 @@ public class PanelUsuarioEmpleado extends javax.swing.JPanel {
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 460));
+
+        campoRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empleado" }));
+        campoRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoRolActionPerformed(evt);
+            }
+        });
+        add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonRegistarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistarUsuarioActionPerformed

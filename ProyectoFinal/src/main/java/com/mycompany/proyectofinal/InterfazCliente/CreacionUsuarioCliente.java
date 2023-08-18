@@ -34,7 +34,6 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Ingresar = new javax.swing.JLabel();
-        campoRol = new javax.swing.JComboBox<>();
         textoNombre = new javax.swing.JTextField();
         textoContraseña = new javax.swing.JTextField();
         textoVerificacionContraseña = new javax.swing.JTextField();
@@ -43,6 +42,7 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
         textoCliente = new javax.swing.JComboBox<>();
         datoCliente = new javax.swing.JComboBox<>();
         Fondo = new javax.swing.JLabel();
+        campoRol = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -73,9 +73,6 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 170, 70));
-
-        campoRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Empleado" }));
-        jPanel1.add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         textoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +135,9 @@ public class CreacionUsuarioCliente extends javax.swing.JFrame {
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/imagenes/Fondo.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -20, 590, 730));
+
+        campoRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cliente", "Empleado" }));
+        getContentPane().add(campoRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
