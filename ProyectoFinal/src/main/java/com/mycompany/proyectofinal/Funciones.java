@@ -7,7 +7,8 @@ import javax.swing.*;
 
 /**
  *
- * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina / Angel Salmeron Hernández
+ * Proyecto creado por Dabney Arosemena Alpízar / Daniel Gilberto Picado Urbina
+ * / Angel Salmeron Hernández
  */
 public class Funciones {
 
@@ -52,18 +53,18 @@ public class Funciones {
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
-    
+
     public void ingresarMenu(JTextField textField1, JTextField textField2) {
         try {
             if (campos2(textField1, textField2)) {
                 JOptionPane.showMessageDialog(null, "Campos en blanco");
                 throw new Exception();
             } else {
-                if (existeUsuario(textField1)) {
+                if (existeUsuario(textField1, textField2)) {
                     if (existeCliente(textField1, textField2)) {
                         MenuPrincipalCliente ventanaCliente = new MenuPrincipalCliente(textField1.getText());
                         ventanaCliente.setVisible(true);
-                        
+
                         //ventanaCliente.setNombreUsuario(textField1.getText());
                         //ventanaCliente.prueba(textField1.getText());
                     } else {
@@ -130,11 +131,12 @@ public class Funciones {
         }
     }
 
-    private boolean existeUsuario(JTextField textField1) {
+    private boolean existeUsuario(JTextField textField1, JTextField textField2) {
         try {
             conexion.setConexion();
-            conexion.setConsulta("SELECT count(*) FROM tab_usuarios WHERE usuario = ?");
+            conexion.setConsulta("SELECT count(*) FROM tab_usuarios WHERE usuario = ? and contraseña = ?");
             conexion.getConsulta().setString(1, textField1.getText());
+            conexion.getConsulta().setString(2, textField2.getText());
             ResultSet resultSet = conexion.getConsulta().executeQuery();
             if (resultSet.next()) {
                 int count = resultSet.getInt(1);
